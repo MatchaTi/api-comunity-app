@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { dbConnect } from './databases/connection';
+import indexRoutes from './routes/index';
 
 dotenv.config();
 
@@ -12,6 +13,9 @@ dbConnect();
 
 app.use(cors());
 app.use(express.json());
+
+//set route
+app.use(indexRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome To API Community App');

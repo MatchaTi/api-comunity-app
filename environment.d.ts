@@ -6,6 +6,7 @@ declare global {
       PORT?: number;
       PWD: string;
       MONGO_URI: string;
+      JWT_SECRET: string;
     }
   }
 }
