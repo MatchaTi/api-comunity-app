@@ -6,6 +6,11 @@ export interface IUser {
     email: string;
     password: string;
   };
-  created_at: number;
   avatar?: string;
+}
+
+export interface IToken {
+  _id: string;
+  token_number: number;
+  email: string;
 }
