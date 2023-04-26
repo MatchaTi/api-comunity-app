@@ -14,3 +14,8 @@ export const registerValidator = () => [
   body('password').isString().isLength({ min: 6 }),
   body('fullname').isString().isLength({ min: 4, max: 28 })
 ];
+
+export const verifyValidator = () => [
+  body('email').isEmail(),
+  body('token_number').isNumeric().isLength({ min: 6, max: 6 })
+];
