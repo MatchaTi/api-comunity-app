@@ -17,5 +17,12 @@ export const registerValidator = () => [
 
 export const verifyValidator = () => [
   body('email').isEmail(),
-  body('token_number').isNumeric().isLength({ min: 6, max: 6 })
+  body('otp_number').isNumeric().isLength({ min: 6, max: 6 })
+];
+
+export const sendTokenValidator = () => [body('email').isEmail()];
+
+export const loginValidator = () => [
+  body('email').isEmail(),
+  body('password').isString().isLength({ min: 6 })
 ];

@@ -1,12 +1,12 @@
 import { Schema, model } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
-import { IToken } from '../utils/interface';
+import { IOtp } from '../utils/interface';
 
-const TokenSchema = new Schema<IToken>(
+const OtpSchema = new Schema<IOtp>(
   {
     _id: { type: String, default: uuidv4 },
     email: { type: String },
-    token_number: { type: Number }
+    otp_number: { type: Number }
   },
   {
     timestamps: {
@@ -16,4 +16,4 @@ const TokenSchema = new Schema<IToken>(
   }
 );
 
-export default model<IToken>('token', TokenSchema);
+export default model<IOtp>('otp', OtpSchema);

@@ -11,8 +11,8 @@ export interface IUser {
   roles: 'user' | 'admin';
 }
 
-export interface IToken {
+export interface IOtp {
   _id: string;
-  token_number: number;
+  otp_number: number;
   email: string;
 }

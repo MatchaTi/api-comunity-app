@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 //set route
-app.use(indexRoutes);
+app.use('/api/v1', indexRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome To API Community App');
