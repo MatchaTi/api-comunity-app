@@ -7,6 +7,8 @@ declare global {
       PWD: string;
       MONGO_URI: string;
       JWT_SECRET: string;
+      EMAIL_PASS: string;
+      EMAIL_USER: string;
     }
   }
 }

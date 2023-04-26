@@ -7,6 +7,7 @@ import { createToken } from '../utils/service/jwt';
 import { createOtpToken } from '../utils/service/otp';
 import { generateUsername } from '../utils/service/user';
 import otp from '../model/otp';
+import { createForgotRoute } from '../utils/service/forgot';
 
 export const register = async (req: Request, res: Response) => {
   const salt = await bcrypt.genSalt(10);
@@ -50,6 +51,7 @@ export const verifyTokenRegister = async (req: Request, res: Response) => {
     if (req.body.otp_number != otpUser?.otp_number) throw 'token salah';
 
     await users.updateOne({ isActive: true });
+    await otp.findOneAndRemove({ email: req.body.email });
     const tokenJWT = createToken(users);
 
     res.status(200).json({
@@ -96,6 +98,50 @@ export const login = async (req: Request, res: Response) => {
     res.status(200).json({
       message: 'berhasil login',
       token: tokenJWT
+    });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
+
+export const forgotPassword = async (req: Request, res: Response) => {
+  const salt = await bcrypt.genSalt(10);
+
+  try {
+    const users = await user.findById(req.body._id);
+
+    if (!users) throw 'Email Tidak Ditemukan Harap Registrasi Terlebih Dahulu';
+    if (!users.isActive)
+      throw 'akun belum terverifikasi harap verifikasi akun terlebih dahulu';
+
+    await user.findByIdAndUpdate(req.body._id, {
+      'credential.password': await bcrypt.hash(
+        req.body.new_password.toLowerCase(),
+        salt
+      )
+    });
+
+    res.status(200).json({
+      message: 'berhasil mengubah password'
+    });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
+
+export const sendForgotPassword = async (req: Request, res: Response) => {
+  try {
+    const users = await user.findOne({
+      'credential.email': req.body.email
+    });
+    if (!users) throw 'Email Tidak Ditemukan Harap Registrasi Terlebih Dahulu';
+    if (!users.isActive)
+      throw 'akun belum terverifikasi harap verifikasi akun terlebih dahulu';
+
+    await createForgotRoute(users);
+
+    res.status(200).json({
+      message: 'harap cek email untuk mengganti password'
     });
   } catch (error) {
     res.status(404).json({ message: error });

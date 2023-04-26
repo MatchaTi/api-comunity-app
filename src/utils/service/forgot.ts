@@ -1,11 +1,9 @@
-import otp from '../../model/otp';
 import nodemailer from 'nodemailer';
+import { createForgotToken } from './jwt';
+import { IUser } from '../interface';
 
-export const createOtpToken = async (email: string) => {
-  await otp.findOneAndRemove({ email });
-
-  const otp_number = Math.floor(100000 + Math.random() * 900000);
-  const data = new otp({ email, otp_number });
+export const createForgotRoute = async ({ _id, credential }: IUser) => {
+  const token = createForgotToken(_id);
 
   try {
     await nodemailer.createTestAccount();
@@ -22,15 +20,13 @@ export const createOtpToken = async (email: string) => {
     });
 
     // send mail with defined transport object
-    const info = await transporter.sendMail({
+    await transporter.sendMail({
       from: process.env.EMAIL_USER, // sender address
-      to: email, // list of receivers
+      to: credential.email, // list of receivers
       subject: 'COMMITAN', // Subject line
-      text: 'Silahkan MemVerfikasi Kode Anda', // plain text body
-      html: `<p>OTP CODE : <b>${otp_number}<b/></p>` // html body
+      text: 'Mengganti password Akun COMMITAN Anda', // plain text body
+      html: `<p>link Mengganti password : <b><a href="https://api/v1/forgot-password/${token}">klik link disini</a><b/></p>` // html body
     });
-
-    if (info.messageId) await data.save();
   } catch (error) {
     console.log(error);
   }

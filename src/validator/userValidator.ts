@@ -20,9 +20,14 @@ export const verifyValidator = () => [
   body('otp_number').isNumeric().isLength({ min: 6, max: 6 })
 ];
 
-export const sendTokenValidator = () => [body('email').isEmail()];
+export const sendValidator = () => [body('email').isEmail()];
 
 export const loginValidator = () => [
   body('email').isEmail(),
   body('password').isString().isLength({ min: 6 })
+];
+
+export const forgotValidator = () => [
+  body('_id').isString(),
+  body('new_password').isString()
 ];
