@@ -7,6 +7,8 @@ export interface IUser {
     password: string;
   };
   avatar?: string;
+  isActive: boolean;
+  roles: 'user' | 'admin';
 }
 
 export interface IToken {

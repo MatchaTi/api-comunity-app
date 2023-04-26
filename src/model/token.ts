@@ -5,8 +5,8 @@ import { IToken } from '../utils/interface';
 const TokenSchema = new Schema<IToken>(
   {
     _id: { type: String, default: uuidv4 },
-    token_number: { type: Number },
-    email: { type: String }
+    email: { type: String },
+    token_number: { type: Number }
   },
   {
     timestamps: {
