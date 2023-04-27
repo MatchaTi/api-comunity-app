@@ -23,7 +23,7 @@ export const jwtMiddleware = (
       return res.status(403).json({ Message: 'UnAuthorization' });
     }
 
-    console.log(token);
+    res.locals.jwtPayload = token;
 
     next();
   });
