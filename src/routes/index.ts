@@ -1,3 +1,9 @@
-import authRouter from './auth';
+import { jwtMiddleware } from '../middleware/jwtMiddleware';
+import authRouter from './authRoute';
+import { Router } from 'express';
 
-export default [authRouter];
+const rootRouter = Router();
+
+rootRouter.use('/auth', jwtMiddleware, authRouter);
+
+export default rootRouter;

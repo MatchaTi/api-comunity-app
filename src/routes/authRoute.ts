@@ -14,6 +14,7 @@ import {
   sendValidator,
   verifyValidator
 } from '../validator/userValidator';
+import { jwtMiddleware } from '../middleware/jwtMiddleware';
 
 const router: Router = express.Router();
 

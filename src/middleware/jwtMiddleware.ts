@@ -18,10 +18,12 @@ export const jwtMiddleware = (
     return res.status(401).json({ Message: 'UnAuthorization' });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, token) => {
     if (err) {
       return res.status(403).json({ Message: 'UnAuthorization' });
     }
+
+    console.log(token);
 
     next();
   });
