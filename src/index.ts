@@ -13,6 +13,7 @@ dbConnect();
 
 app.use(cors());
 app.use(express.json());
+app.set('view engine', 'ejs');
 
 //set route
 app.use('/api/v1', indexRoutes);

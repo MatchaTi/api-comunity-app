@@ -1,5 +1,7 @@
 import otp from '../../model/otp';
 import nodemailer from 'nodemailer';
+import ejs from 'ejs';
+import path from 'path';
 
 export const createOtpToken = async (email: string) => {
   await otp.findOneAndRemove({ email });
@@ -7,6 +9,12 @@ export const createOtpToken = async (email: string) => {
   const otp_number = Math.floor(100000 + Math.random() * 900000);
   const data = new otp({ email, otp_number });
 
+  const view = await ejs.renderFile(
+    path.join(__dirname, '../../views/otp.ejs'),
+    {
+      data
+    }
+  );
   try {
     await nodemailer.createTestAccount();
 
@@ -27,7 +35,7 @@ export const createOtpToken = async (email: string) => {
       to: email, // list of receivers
       subject: 'COMMITAN', // Subject line
       text: 'Silahkan MemVerfikasi Kode Anda', // plain text body
-      html: `<p>OTP CODE : <b>${otp_number}<b/></p>` // html body
+      html: view // html body
     });
 
     if (info.messageId) await data.save();

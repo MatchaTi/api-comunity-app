@@ -1,10 +1,18 @@
 import nodemailer from 'nodemailer';
 import { createForgotToken } from './jwt';
 import { IUser } from '../interface';
+import ejs from 'ejs';
+import path from 'path';
 
 export const createForgotRoute = async ({ _id, credential }: IUser) => {
   const token = createForgotToken(_id);
 
+  const view = await ejs.renderFile(
+    path.join(__dirname, '../../views/forgot.ejs'),
+    {
+      url: `https://api/v1/forgot-password/${token}`
+    }
+  );
   try {
     await nodemailer.createTestAccount();
 
@@ -25,7 +33,7 @@ export const createForgotRoute = async ({ _id, credential }: IUser) => {
       to: credential.email, // list of receivers
       subject: 'COMMITAN', // Subject line
       text: 'Mengganti password Akun COMMITAN Anda', // plain text body
-      html: `<p>link Mengganti password : <b><a href="https://api/v1/forgot-password/${token}">klik link disini</a><b/></p>` // html body
+      html: view // html body
     });
   } catch (error) {
     console.log(error);

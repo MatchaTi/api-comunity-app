@@ -1,0 +1,911 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Facebook sharing information tags -->
+    <meta property="og:title" content="Verify Your Email" />
+    <title>Verify Your Email</title>
+    <style type="text/css">
+      #outlook a {
+        padding: 0;
+      }
+      body {
+        width: 100% !important;
+      }
+      .ReadMsgBody {
+        width: 100%;
+      }
+      .ExternalClass {
+        width: 100%;
+      }
+      body {
+        -webkit-text-size-adjust: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+      table td {
+        border-collapse: collapse;
+      }
+      #backgroundTable {
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+      }
+      /*
+    @tab Page
+    @section background color
+    @tip Set the background color for your email. You may want to choose one that matches your company's branding.
+    @theme page
+    */
+      body,
+      #backgroundTable {
+        /*@editable*/
+        background-color: #fafafa;
+      }
+      /*
+    @tab Page
+    @section email border
+    @tip Set the border for your email.
+    */
+      #templateContainer {
+        /*@editable*/
+        border: 1px none #dddddd;
+      }
+      /*
+    @tab Page
+    @section heading 1
+    @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+    @style heading 1
+    */
+      h1,
+      .h1 {
+        /*@editable*/
+        color: #202020;
+        display: block;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 24px;
+        /*@editable*/
+        font-weight: bold;
+        /*@editable*/
+        line-height: 100%;
+        margin-top: 20px;
+        margin-right: 0;
+        margin-bottom: 20px;
+        margin-left: 0;
+        /*@editable*/
+        text-align: center;
+      }
+      /*
+    @tab Page
+    @section heading 2
+    @tip Set the styling for all second-level headings in your emails.
+    @style heading 2
+    */
+      h2,
+      .h2 {
+        /*@editable*/
+        color: #202020;
+        display: block;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 30px;
+        /*@editable*/
+        font-weight: bold;
+        /*@editable*/
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        /*@editable*/
+        text-align: center;
+      }
+      /*
+    @tab Page
+    @section heading 3
+    @tip Set the styling for all third-level headings in your emails.
+    @style heading 3
+    */
+      h3,
+      .h3 {
+        /*@editable*/
+        color: #202020;
+        display: block;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 26px;
+        /*@editable*/
+        font-weight: bold;
+        /*@editable*/
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        /*@editable*/
+        text-align: center;
+      }
+      /*
+    @tab Page
+    @section heading 4
+    @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+    @style heading 4
+    */
+      h4,
+      .h4 {
+        /*@editable*/
+        color: #202020;
+        display: block;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 22px;
+        /*@editable*/
+        font-weight: bold;
+        /*@editable*/
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        /*@editable*/
+        text-align: center;
+      }
+      /*
+    @tab Header
+    @section preheader style
+    @tip Set the background color for your email's preheader area.
+    @theme page
+    */
+      #templatePreheader {
+        /*@editable*/
+        background-color: #fafafa;
+      }
+      /*
+    @tab Header
+    @section preheader text
+    @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
+    */
+      .preheaderContent div {
+        /*@editable*/
+        color: #505050;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 10px;
+        /*@editable*/
+        line-height: 100%;
+        /*@editable*/
+        text-align: left;
+      }
+      /*
+    @tab Header
+    @section preheader link
+    @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
+    */
+      .preheaderContent div a:link,
+      .preheaderContent div a:visited,
+      .preheaderContent div a .yshortcuts {
+        /*@editable*/
+        color: #336699;
+        /*@editable*/
+        font-weight: normal;
+        /*@editable*/
+        text-decoration: underline;
+      }
+      .preheaderContent img {
+        display: inline;
+        height: auto;
+        margin-bottom: 10px;
+        max-width: 280px;
+      }
+      /*
+    @tab Header
+    @section header style
+    @tip Set the background color and border for your email's header area.
+    @theme header
+    */
+      #templateHeader {
+        /*@editable*/
+        background-color: #ffffff;
+        /*@editable*/
+        border-bottom: 0;
+      }
+      /*
+    @tab Header
+    @section header text
+    @tip Set the styling for your email's header text. Choose a size and color that is easy to read.
+    */
+      .headerContent {
+        /*@editable*/
+        color: #202020;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 34px;
+        /*@editable*/
+        font-weight: bold;
+        /*@editable*/
+        line-height: 100%;
+        /*@editable*/
+        padding: 0;
+        /*@editable*/
+        text-align: left;
+        /*@editable*/
+        vertical-align: middle;
+        background-color: #111827;
+        padding-bottom: 14px;
+      }
+      /*
+    @tab Header
+    @section header link
+    @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
+    */
+      .headerContent a:link,
+      .headerContent a:visited,
+      .headerContent a .yshortcuts {
+        /*@editable*/
+        color: #336699;
+        /*@editable*/
+        font-weight: normal;
+        /*@editable*/
+        text-decoration: underline;
+      }
+      #headerImage {
+        height: auto;
+        max-width: 400px !important;
+      }
+      /*
+    @tab Body
+    @section body style
+    @tip Set the background color for your email's body area.
+    */
+      #templateContainer,
+      .bodyContent {
+        /*@editable*/
+        background-color: #ffffff;
+      }
+      /*
+    @tab Body
+    @section body text
+    @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.
+    @theme main
+    */
+      .bodyContent div {
+        /*@editable*/
+        color: #505050;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 14px;
+        /*@editable*/
+        line-height: 150%;
+        /*@editable*/
+        text-align: left;
+      }
+      /*
+    @tab Body
+    @section body link
+    @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
+    */
+      .bodyContent div a:link,
+      .bodyContent div a:visited,
+      .bodyContent div a .yshortcuts {
+        /*@editable*/
+        color: #336699;
+        /*@editable*/
+        font-weight: normal;
+        /*@editable*/
+        text-decoration: underline;
+      }
+      .bodyContent img {
+        display: inline;
+        height: auto;
+        margin-bottom: 10px;
+        max-width: 280px;
+      }
+      /*
+    @tab Footer
+    @section footer style
+    @tip Set the background color and top border for your email's footer area.
+    @theme footer
+    */
+      #templateFooter {
+        /*@editable*/
+        background-color: #ffffff;
+        /*@editable*/
+        border-top: 0;
+      }
+      /*
+    @tab Footer
+    @section footer text
+    @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
+    @theme footer
+    */
+      .footerContent {
+        background-color: #fafafa;
+      }
+      .footerContent div {
+        /*@editable*/
+        color: #707070;
+        /*@editable*/
+        font-family: Arial;
+        /*@editable*/
+        font-size: 11px;
+        /*@editable*/
+        line-height: 150%;
+        /*@editable*/
+        text-align: left;
+      }
+      /*
+    @tab Footer
+    @section footer link
+    @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+    */
+      .footerContent div a:link,
+      .footerContent div a:visited,
+      .footerContent div a .yshortcuts {
+        /*@editable*/
+        color: #336699;
+        /*@editable*/
+        font-weight: normal;
+        /*@editable*/
+        text-decoration: underline;
+      }
+      .footerContent img {
+        display: inline;
+      }
+      /*
+    @tab Footer
+    @section social bar style
+    @tip Set the background color and border for your email's footer social bar.
+    @theme footer
+    */
+      #social {
+        /*@editable*/
+        background-color: #fafafa;
+        /*@editable*/
+        border: 0;
+      }
+      /*
+    @tab Footer
+    @section social bar style
+    @tip Set the background color and border for your email's footer social bar.
+    */
+      #social div {
+        /*@editable*/
+        text-align: left;
+      }
+      /*
+    @tab Footer
+    @section utility bar style
+    @tip Set the background color and border for your email's footer utility bar.
+    @theme footer
+    */
+      #utility {
+        /*@editable*/
+        background-color: #ffffff;
+        /*@editable*/
+        border: 0;
+      }
+      /*
+    @tab Footer
+    @section utility bar style
+    @tip Set the background color and border for your email's footer utility bar.
+    */
+      #utility div {
+        /*@editable*/
+        text-align: left;
+      }
+      #monkeyRewards img {
+        display: inline;
+        height: auto;
+        max-width: 280px;
+      }
+
+      /*
+    ATAVIST CUSTOM STYLES 
+     */
+
+      .buttonText {
+        color: #4a90e2;
+        text-decoration: none;
+        font-weight: normal;
+        display: block;
+        border: 2px solid #585858;
+        padding: 10px 80px;
+        font-family: Arial;
+      }
+
+      #supportSection,
+      .supportContent {
+        background-color: white;
+        font-family: arial;
+        font-size: 12px;
+        border-top: 1px solid #e4e4e4;
+      }
+
+      .bodyContent table {
+        padding-bottom: 10px;
+      }
+
+      .footerContent p {
+        margin: 0;
+        margin-top: 2px;
+      }
+
+      .headerContent.centeredWithBackground {
+        background-color: #111827;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+        h1 {
+          font-size: 40px !important;
+        }
+
+        .content {
+          font-size: 22px !important;
+        }
+
+        .bodyContent p {
+          font-size: 22px !important;
+        }
+
+        .buttonText {
+          font-size: 22px !important;
+        }
+
+        p {
+          font-size: 16px !important;
+        }
+
+        .footerContent p {
+          padding-left: 5px !important;
+        }
+
+        .mainContainer {
+          padding-bottom: 0 !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    leftmargin="0"
+    marginwidth="0"
+    topmargin="0"
+    marginheight="0"
+    offset="0"
+    style="
+      width: 100%;
+      -webkit-text-size-adjust: none;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+    "
+  >
+    <center>
+      <table
+        border="0"
+        cellpadding="0"
+        cellspacing="0"
+        height="100%"
+        width="100%"
+        id="backgroundTable"
+        style="
+          border-radius: 8px;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          background-color: #fafafa;
+        "
+      >
+        <tr>
+          <td align="center" valign="top" style="border-collapse: collapse">
+            <!-- // Begin Template Preheader \\ -->
+            <table
+              border="0"
+              cellpadding="10"
+              cellspacing="0"
+              width="450"
+              id="templatePreheader"
+              style="background-color: #fafafa"
+            >
+              <tr>
+                <td
+                  valign="top"
+                  class="preheaderContent"
+                  style="border-collapse: collapse"
+                >
+                  <!-- // Begin Module: Standard Preheader \\ -->
+                  <table
+                    border="0"
+                    cellpadding="10"
+                    cellspacing="0"
+                    width="100%"
+                  >
+                    <tr>
+                      <td valign="top" style="border-collapse: collapse">
+                        <!-- <div mc:edit="std_preheader_content">
+                                                     Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                                                  </div>
+                                                  -->
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- // End Module: Standard Preheader \\ -->
+                </td>
+              </tr>
+            </table>
+            <!-- // End Template Preheader \\ -->
+            <table
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              width="450"
+              id="templateContainer"
+              style="border: 1px none #dddddd; background-color: #ffffff"
+            >
+              <tr>
+                <td
+                  align="center"
+                  valign="top"
+                  style="border-collapse: collapse"
+                >
+                  <!-- // Begin Template Header \\ -->
+                  <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="450"
+                    id="templateHeader"
+                    style="background-color: #ffffff; border-bottom: 0"
+                  >
+                    <tr>
+                      <td
+                        class="headerContent centeredWithBackground"
+                        style="
+                          border-collapse: collapse;
+                          color: #202020;
+                          font-family: Arial;
+                          font-size: 34px;
+                          font-weight: bold;
+                          line-height: 100%;
+                          padding: 0;
+                          text-align: center;
+                          vertical-align: middle;
+                          background-color: #111827;
+                          padding-bottom: 20px;
+                          padding-top: 20px;
+                        "
+                      >
+                        <!-- // Begin Module: Standard Header Image \\ -->
+                        <svg
+                          width="412"
+                          height="77"
+                          viewBox="0 0 412 77"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            y="8"
+                            width="30"
+                            height="30"
+                            rx="4"
+                            fill="#0284C7"
+                          />
+                          <rect
+                            y="46"
+                            width="30"
+                            height="30"
+                            rx="4"
+                            fill="#E2E8F0"
+                          />
+                          <rect
+                            x="38"
+                            y="8"
+                            width="30"
+                            height="30"
+                            rx="4"
+                            fill="#38BDF8"
+                          />
+                          <rect
+                            x="38"
+                            y="46"
+                            width="30"
+                            height="30"
+                            rx="4"
+                            fill="#0369A1"
+                          />
+                          <path
+                            d="M99.6364 62.6818C96.0606 62.6818 92.9848 61.9242 90.4091 60.4091C87.8485 58.8788 85.8788 56.7576 84.5 54.0455C83.1364 51.3333 82.4545 48.2121 82.4545 44.6818C82.4545 41.1061 83.1439 37.9697 84.5227 35.2727C85.9167 32.5606 87.8939 30.447 90.4545 28.9318C93.0152 27.4015 96.0606 26.6364 99.5909 26.6364C102.636 26.6364 105.303 27.1894 107.591 28.2955C109.879 29.4015 111.689 30.9545 113.023 32.9545C114.356 34.9545 115.091 37.303 115.227 40H106.091C105.833 38.2576 105.152 36.8561 104.045 35.7955C102.955 34.7197 101.523 34.1818 99.75 34.1818C98.25 34.1818 96.9394 34.5909 95.8182 35.4091C94.7121 36.2121 93.8485 37.3864 93.2273 38.9318C92.6061 40.4773 92.2955 42.3485 92.2955 44.5455C92.2955 46.7727 92.5985 48.6667 93.2045 50.2273C93.8258 51.7879 94.697 52.9773 95.8182 53.7955C96.9394 54.6136 98.25 55.0227 99.75 55.0227C100.856 55.0227 101.848 54.7955 102.727 54.3409C103.621 53.8864 104.356 53.2273 104.932 52.3636C105.523 51.4848 105.909 50.4318 106.091 49.2045H115.227C115.076 51.8712 114.348 54.2197 113.045 56.25C111.758 58.2652 109.977 59.8409 107.705 60.9773C105.432 62.1136 102.742 62.6818 99.6364 62.6818ZM137.199 62.6818C133.669 62.6818 130.616 61.9318 128.04 60.4318C125.479 58.9167 123.502 56.8106 122.108 54.1136C120.714 51.4015 120.017 48.2576 120.017 44.6818C120.017 41.0758 120.714 37.9242 122.108 35.2273C123.502 32.5152 125.479 30.4091 128.04 28.9091C130.616 27.3939 133.669 26.6364 137.199 26.6364C140.729 26.6364 143.775 27.3939 146.335 28.9091C148.911 30.4091 150.896 32.5152 152.29 35.2273C153.684 37.9242 154.381 41.0758 154.381 44.6818C154.381 48.2576 153.684 51.4015 152.29 54.1136C150.896 56.8106 148.911 58.9167 146.335 60.4318C143.775 61.9318 140.729 62.6818 137.199 62.6818ZM137.244 55.1818C138.85 55.1818 140.191 54.7273 141.267 53.8182C142.343 52.8939 143.153 51.6364 143.699 50.0455C144.259 48.4545 144.54 46.6439 144.54 44.6136C144.54 42.5833 144.259 40.7727 143.699 39.1818C143.153 37.5909 142.343 36.3333 141.267 35.4091C140.191 34.4848 138.85 34.0227 137.244 34.0227C135.623 34.0227 134.259 34.4848 133.153 35.4091C132.063 36.3333 131.237 37.5909 130.676 39.1818C130.131 40.7727 129.858 42.5833 129.858 44.6136C129.858 46.6439 130.131 48.4545 130.676 50.0455C131.237 51.6364 132.063 52.8939 133.153 53.8182C134.259 54.7273 135.623 55.1818 137.244 55.1818ZM160.676 62V27.0909H169.903V33.25H170.312C171.04 31.2045 172.252 29.5909 173.949 28.4091C175.646 27.2273 177.676 26.6364 180.04 26.6364C182.434 26.6364 184.472 27.2348 186.153 28.4318C187.835 29.6136 188.956 31.2197 189.517 33.25H189.881C190.593 31.25 191.881 29.6515 193.744 28.4545C195.623 27.2424 197.843 26.6364 200.403 26.6364C203.661 26.6364 206.305 27.6742 208.335 29.75C210.381 31.8106 211.403 34.7348 211.403 38.5227V62H201.744V40.4318C201.744 38.4924 201.229 37.0379 200.199 36.0682C199.169 35.0985 197.881 34.6136 196.335 34.6136C194.578 34.6136 193.206 35.1742 192.222 36.2955C191.237 37.4015 190.744 38.8636 190.744 40.6818V62H181.358V40.2273C181.358 38.5152 180.866 37.1515 179.881 36.1364C178.911 35.1212 177.631 34.6136 176.04 34.6136C174.964 34.6136 173.994 34.8864 173.131 35.4318C172.282 35.9621 171.608 36.7121 171.108 37.6818C170.608 38.6364 170.358 39.7576 170.358 41.0455V62H160.676ZM219.051 62V27.0909H228.278V33.25H228.688C229.415 31.2045 230.627 29.5909 232.324 28.4091C234.021 27.2273 236.051 26.6364 238.415 26.6364C240.809 26.6364 242.847 27.2348 244.528 28.4318C246.21 29.6136 247.331 31.2197 247.892 33.25H248.256C248.968 31.25 250.256 29.6515 252.119 28.4545C253.998 27.2424 256.218 26.6364 258.778 26.6364C262.036 26.6364 264.68 27.6742 266.71 29.75C268.756 31.8106 269.778 34.7348 269.778 38.5227V62H260.119V40.4318C260.119 38.4924 259.604 37.0379 258.574 36.0682C257.544 35.0985 256.256 34.6136 254.71 34.6136C252.953 34.6136 251.581 35.1742 250.597 36.2955C249.612 37.4015 249.119 38.8636 249.119 40.6818V62H239.733V40.2273C239.733 38.5152 239.241 37.1515 238.256 36.1364C237.286 35.1212 236.006 34.6136 234.415 34.6136C233.339 34.6136 232.369 34.8864 231.506 35.4318C230.657 35.9621 229.983 36.7121 229.483 37.6818C228.983 38.6364 228.733 39.7576 228.733 41.0455V62H219.051ZM277.426 62V27.0909H287.108V62H277.426ZM282.29 22.5909C280.85 22.5909 279.616 22.1136 278.585 21.1591C277.57 20.1894 277.062 19.0303 277.062 17.6818C277.062 16.3485 277.57 15.2045 278.585 14.25C279.616 13.2803 280.85 12.7955 282.29 12.7955C283.729 12.7955 284.956 13.2803 285.972 14.25C287.002 15.2045 287.517 16.3485 287.517 17.6818C287.517 19.0303 287.002 20.1894 285.972 21.1591C284.956 22.1136 283.729 22.5909 282.29 22.5909ZM313.432 27.0909V34.3636H292.409V27.0909H313.432ZM297.182 18.7273H306.864V51.2727C306.864 52.1667 307 52.8636 307.273 53.3636C307.545 53.8485 307.924 54.1894 308.409 54.3864C308.909 54.5833 309.485 54.6818 310.136 54.6818C310.591 54.6818 311.045 54.6439 311.5 54.5682C311.955 54.4773 312.303 54.4091 312.545 54.3636L314.068 61.5682C313.583 61.7197 312.902 61.8939 312.023 62.0909C311.144 62.303 310.076 62.4318 308.818 62.4773C306.485 62.5682 304.439 62.2576 302.682 61.5455C300.939 60.8333 299.583 59.7273 298.614 58.2273C297.644 56.7273 297.167 54.8333 297.182 52.5455V18.7273ZM329.693 62.6591C327.466 62.6591 325.481 62.2727 323.739 61.5C321.996 60.7121 320.617 59.553 319.602 58.0227C318.602 56.4773 318.102 54.553 318.102 52.25C318.102 50.3106 318.458 48.6818 319.17 47.3636C319.883 46.0455 320.852 44.9848 322.08 44.1818C323.307 43.3788 324.701 42.7727 326.261 42.3636C327.837 41.9545 329.489 41.6667 331.216 41.5C333.246 41.2879 334.883 41.0909 336.125 40.9091C337.367 40.7121 338.269 40.4242 338.83 40.0455C339.39 39.6667 339.67 39.1061 339.67 38.3636V38.2273C339.67 36.7879 339.216 35.6742 338.307 34.8864C337.413 34.0985 336.14 33.7045 334.489 33.7045C332.746 33.7045 331.36 34.0909 330.33 34.8636C329.299 35.6212 328.617 36.5758 328.284 37.7273L319.33 37C319.784 34.8788 320.678 33.0455 322.011 31.5C323.345 29.9394 325.064 28.7424 327.17 27.9091C329.292 27.0606 331.746 26.6364 334.534 26.6364C336.473 26.6364 338.33 26.8636 340.102 27.3182C341.89 27.7727 343.473 28.4773 344.852 29.4318C346.246 30.3864 347.345 31.6136 348.148 33.1136C348.951 34.5985 349.352 36.3788 349.352 38.4545V62H340.17V57.1591H339.898C339.337 58.25 338.587 59.2121 337.648 60.0455C336.708 60.8636 335.58 61.5076 334.261 61.9773C332.943 62.4318 331.42 62.6591 329.693 62.6591ZM332.466 55.9773C333.89 55.9773 335.148 55.697 336.239 55.1364C337.33 54.5606 338.186 53.7879 338.807 52.8182C339.428 51.8485 339.739 50.75 339.739 49.5227V45.8182C339.436 46.0152 339.019 46.197 338.489 46.3636C337.973 46.5152 337.39 46.6591 336.739 46.7955C336.087 46.9167 335.436 47.0303 334.784 47.1364C334.133 47.2273 333.542 47.3106 333.011 47.3864C331.875 47.553 330.883 47.8182 330.034 48.1818C329.186 48.5455 328.527 49.0379 328.057 49.6591C327.587 50.2652 327.352 51.0227 327.352 51.9318C327.352 53.25 327.83 54.2576 328.784 54.9545C329.754 55.6364 330.981 55.9773 332.466 55.9773ZM366.545 41.8182V62H356.864V27.0909H366.091V33.25H366.5C367.273 31.2197 368.568 29.6136 370.386 28.4318C372.205 27.2348 374.409 26.6364 377 26.6364C379.424 26.6364 381.538 27.1667 383.341 28.2273C385.144 29.2879 386.545 30.803 387.545 32.7727C388.545 34.7273 389.045 37.0606 389.045 39.7727V62H379.364V41.5C379.379 39.3636 378.833 37.697 377.727 36.5C376.621 35.2879 375.098 34.6818 373.159 34.6818C371.856 34.6818 370.705 34.9621 369.705 35.5227C368.72 36.0833 367.947 36.9015 367.386 37.9773C366.841 39.0379 366.561 40.3182 366.545 41.8182ZM402.335 62.5909C400.835 62.5909 399.547 62.0606 398.472 61C397.411 59.9242 396.881 58.6364 396.881 57.1364C396.881 55.6515 397.411 54.3788 398.472 53.3182C399.547 52.2576 400.835 51.7273 402.335 51.7273C403.79 51.7273 405.063 52.2576 406.153 53.3182C407.244 54.3788 407.79 55.6515 407.79 57.1364C407.79 58.1364 407.532 59.053 407.017 59.8864C406.517 60.7045 405.858 61.3636 405.04 61.8636C404.222 62.3485 403.32 62.5909 402.335 62.5909Z"
+                            fill="#F1F5F9"
+                          />
+                        </svg>
+
+                        <!-- // End Module: Standard Header Image \\ -->
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- // End Template Header \\ -->
+                </td>
+              </tr>
+              <tr>
+                <td
+                  align="center"
+                  valign="top"
+                  style="border-collapse: collapse"
+                >
+                  <!-- // Begin Template Body \\ -->
+                  <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="450"
+                    id="templateBody"
+                  >
+                    <tr>
+                      <td
+                        valign="top"
+                        class="bodyContent"
+                        style="
+                          border-collapse: collapse;
+                          background-color: #ffffff;
+                        "
+                      >
+                        <!-- // Begin Module: Standard Content \\ -->
+                        <table
+                          border="0"
+                          cellpadding="20"
+                          cellspacing="0"
+                          width="100%"
+                          style="padding-bottom: 10px"
+                        >
+                          <tr>
+                            <td
+                              valign="top"
+                              style="
+                                padding-bottom: 1rem;
+                                border-collapse: collapse;
+                              "
+                              class="mainContainer"
+                            >
+                              <div
+                                style="
+                                  text-align: center;
+                                  color: #505050;
+                                  font-family: Arial;
+                                  font-size: 14px;
+                                  line-height: 150%;
+                                "
+                              >
+                                <h1
+                                  class="h1"
+                                  style="
+                                    color: #202020;
+                                    display: block;
+                                    font-family: Arial;
+                                    font-size: 24px;
+                                    font-weight: bold;
+                                    line-height: 100%;
+                                    margin-top: 20px;
+                                    margin-right: 0;
+                                    margin-bottom: 20px;
+                                    margin-left: 0;
+                                    text-align: center;
+                                  "
+                                >
+                                  Verifikasi Code Otp
+                                </h1>
+                                <!-- <h2 class="h2">Heading 2</h2>
+                                                                <h3 class="h3">Heading 3</h3>
+                                                                <h4 class="h4">Heading 4</h4> -->
+                                <p>
+                                  Silakan salin kode di bawah ini untuk
+                                  MemVerifikasi Akun Anda.
+                                </p>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              align="center"
+                              style="border-collapse: collapse"
+                            >
+                              <table
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                style="padding-bottom: 10px"
+                              >
+                                <tbody>
+                                  <tr align="center">
+                                    <td
+                                      align="center"
+                                      valign="middle"
+                                      style="border-collapse: collapse"
+                                    >
+                                      <h1
+                                        class="buttonText"
+                                        href="#"
+                                        target="_blank"
+                                        style="
+                                          color: #111827;
+                                          text-decoration: none;
+                                          font-weight: normal;
+                                          display: block;
+                                          border: 2px solid #585858;
+                                          padding: 10px 80px;
+                                          font-family: Arial;
+                                          letter-spacing: 10px;
+                                          font-weight: bold;
+                                        "
+                                      >
+                                        <%= data.otp_number %>
+                                      </h1>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- // End Module: Standard Content \\ -->
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- // End Template Body \\ -->
+                </td>
+              </tr>
+              <tr>
+                <td
+                  align="center"
+                  valign="top"
+                  style="border-collapse: collapse"
+                >
+                  <!-- // Begin Support Section \\ -->
+                  <table
+                    border="0"
+                    cellpadding="10"
+                    cellspacing="0"
+                    width="450"
+                    id="supportSection"
+                    style="
+                      background-color: white;
+                      font-family: arial;
+                      font-size: 12px;
+                      border-top: 1px solid #e4e4e4;
+                    "
+                  >
+                    <tr>
+                      <td
+                        valign="top"
+                        class="supportContent"
+                        style="
+                          border-collapse: collapse;
+                          background-color: white;
+                          font-family: arial;
+                          font-size: 12px;
+                          border-top: 1px solid #e4e4e4;
+                        "
+                      >
+                        <!-- // Begin Module: Standard Footer \\ -->
+                        <table
+                          border="0"
+                          cellpadding="10"
+                          cellspacing="0"
+                          width="100%"
+                        >
+                          <tr>
+                            <td
+                              valign="top"
+                              width="100%"
+                              style="border-collapse: collapse"
+                            >
+                              <br />
+                              <div
+                                style="
+                                  text-align: center;
+                                  color: #c9c9c9;
+                                  font-size: 15px;
+                                "
+                              >
+                                <p>
+                                  Dengan Ini , Anda Menerima Ketentuan &nbsp;
+                                  <a
+                                    href="http://commitan.com/terms-of-us"
+                                    style="
+                                      color: #4a90e2;
+                                      font-weight: normal;
+                                      text-decoration: underline;
+                                      font-size: 12px;
+                                    "
+                                    >Terms of Use and acknowledge the Privacy
+                                    Policy and Cookie Policy.</a
+                                  >.
+                                </p>
+                              </div>
+                              <br />
+                            </td>
+                          </tr>
+                        </table>
+                        <!-- // End Module: Standard Footer \\ -->
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- // Begin Support Section \\ -->
+                </td>
+              </tr>
+              <tr>
+                <td
+                  align="center"
+                  valign="top"
+                  style="border-collapse: collapse"
+                >
+                  <!-- // Begin Template Footer \\ -->
+                  <table
+                    border="0"
+                    cellpadding="10"
+                    cellspacing="0"
+                    width="450"
+                    id="templateFooter"
+                    style="background-color: #ffffff; border-top: 0"
+                  >
+                    <tr>
+                      <td
+                        valign="top"
+                        class="footerContent"
+                        style="
+                          padding-left: 0;
+                          border-collapse: collapse;
+                          background-color: #fafafa;
+                        "
+                      >
+                        <div
+                          style="
+                            text-align: center;
+                            color: #c9c9c9;
+                            font-family: Arial;
+                            font-size: 11px;
+                            line-height: 150%;
+                          "
+                        >
+                          <p
+                            style="text-align: left; margin: 0; margin-top: 2px"
+                          >
+                            commitan.com | Copyright © 2023 | All rights
+                            reserved
+                          </p>
+                        </div>
+                        <!-- // End Module: Standard Footer \\ -->
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- // End Template Footer \\ -->
+                </td>
+              </tr>
+            </table>
+            <br />
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>

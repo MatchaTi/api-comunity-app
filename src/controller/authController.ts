@@ -8,6 +8,7 @@ import { createOtpToken } from '../utils/service/otp';
 import { generateUsername } from '../utils/service/user';
 import otp from '../model/otp';
 import { createForgotRoute } from '../utils/service/forgot';
+import { expireTime } from '../utils/service/time';
 
 export const register = async (req: Request, res: Response) => {
   const salt = await bcrypt.genSalt(10);
@@ -48,6 +49,8 @@ export const verifyTokenRegister = async (req: Request, res: Response) => {
     if (users.isActive) throw 'akun sudah terverifikasi';
     const otpUser = await otp.findOne({ email: req.body.email });
     if (!otpUser) throw 'harap mengirim ulang verifikasi akun';
+    if (expireTime(otpUser.created_at))
+      throw 'code verifikasi sudah expire harap mengirim ulang code';
     if (req.body.otp_number != otpUser?.otp_number) throw 'token salah';
 
     await users.updateOne({ isActive: true });

@@ -15,4 +15,5 @@ export interface IOtp {
   _id: string;
   otp_number: number;
   email: string;
+  created_at: string;
 }
