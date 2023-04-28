@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import { Router } from 'express';
 import {
   forgotPassword,
   login,
@@ -15,7 +15,7 @@ import {
   verifyValidator
 } from '../validator/userValidator';
 
-const router: Router = express.Router();
+const router: Router = Router();
 
 router.post('/register', registerValidator(), register);
 router.post('/otp-verify', verifyValidator(), verifyTokenRegister);
