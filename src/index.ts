@@ -23,9 +23,6 @@ app.use(express.json());
 
 //set multer config
 app.use('/images', express.static(path.join('images')));
-app.use(
-  multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
-);
 
 //set template engine
 app.set('view engine', 'ejs');
