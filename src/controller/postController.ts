@@ -26,3 +26,41 @@ export const createPost = async (req: Request, res: Response) => {
     res.status(404).json({ message: error });
   }
 };
+
+export const updatePost = async (req: Request, res: Response) => {
+  const resultValidator = validationResult(req);
+  if (!resultValidator.isEmpty()) {
+    return res.json({ error: resultValidator.array() });
+  }
+
+  const { post_id } = req.params;
+
+  try {
+    await post.findByIdAndUpdate(post_id, {
+      isEdited: true,
+      ...req.body
+    });
+    res.status(200).json({
+      message: 'berhasil mengubah data'
+    });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
+
+export const deletePost = async (req: Request, res: Response) => {
+  const resultValidator = validationResult(req);
+  if (!resultValidator.isEmpty()) {
+    return res.json({ error: resultValidator.array() });
+  }
+
+  const { post_id } = req.params;
+  try {
+    await post.findByIdAndDelete(post_id);
+    res.status(200).json({
+      message: 'berhasil menghapus data'
+    });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
