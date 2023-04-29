@@ -36,7 +36,7 @@ export const register = async (req: Request, res: Response) => {
       message: 'Akun Sudah Teregistrasi, Harap Untuk MemVerfikasi Akun Anda'
     });
   } catch (error) {
-    res.status(404).json(error);
+    res.status(404).json({ message: error });
   }
 };
 

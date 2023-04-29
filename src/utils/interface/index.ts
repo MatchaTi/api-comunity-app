@@ -43,5 +43,6 @@ export interface Icomment {
   text: string;
   likes: number;
   dislikes: number;
+  isEdited: boolean;
   reply?: Array<Icomment>;
 }

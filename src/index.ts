@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 //set multer config
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static(path.join('images')));
 app.use(
   multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
 );
