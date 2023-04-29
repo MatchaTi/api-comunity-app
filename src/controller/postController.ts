@@ -3,6 +3,29 @@ import post from '../model/post';
 import { validationResult } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
 
+export const getPost = async (req: Request, res: Response) => {
+  const { user_id, start, limit } = req.params;
+
+  const category = req.query.category;
+
+  try {
+    if (category) {
+      const data = await post
+        .find({ category, user_id: { $ne: user_id } })
+        .skip(parseInt(start))
+        .limit(parseInt(limit));
+      return res.status(200).json({ data });
+    }
+    const data = await post
+      .find({ user_id })
+      .skip(parseInt(start))
+      .limit(parseInt(limit));
+    res.status(200).json({ data });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
+
 export const createPost = async (req: Request, res: Response) => {
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
