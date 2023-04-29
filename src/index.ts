@@ -3,16 +3,31 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { dbConnect } from './databases/connection';
 import indexRoutes from './routes/index';
+import multer from 'multer';
+import { fileFilter, fileStorage } from './config/multer';
+import path from 'path';
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
+//connect db
 dbConnect();
 
+//set cors
 app.use(cors());
+
+//set parse to json
 app.use(express.json());
+
+//set multer config
+app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(
+  multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
+);
+
+//set template engine
 app.set('view engine', 'ejs');
 
 //set route

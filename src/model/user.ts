@@ -12,14 +12,11 @@ const userSchema = new Schema<IUser>(
       password: { type: String }
     },
     roles: { type: String, default: 'user' },
-    avatar: { type: String },
+    image: { type: String },
     isActive: { type: Boolean, default: false }
   },
   {
-    timestamps: {
-      createdAt: 'created_at',
-      updatedAt: 'updated_at'
-    }
+    timestamps: true
   }
 );
 
