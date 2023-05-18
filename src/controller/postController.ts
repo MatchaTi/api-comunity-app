@@ -11,13 +11,15 @@ export const getPost = async (req: Request, res: Response) => {
   try {
     if (category) {
       const data = await post
-        .find({ category, user_id: { $ne: user_id } })
+        .find({ category })
+        .populate('users', '-credential.password')
         .skip(parseInt(start))
         .limit(parseInt(limit));
       return res.status(200).json({ data });
     }
     const data = await post
       .find({ user_id })
+      .populate('users')
       .skip(parseInt(start))
       .limit(parseInt(limit));
     res.status(200).json({ data });
@@ -35,6 +37,7 @@ export const createPost = async (req: Request, res: Response) => {
   const data = new post({
     _id: uuidv4(),
     user_id,
+    users: user_id,
     image: req.file?.path,
     ...req.body
   });

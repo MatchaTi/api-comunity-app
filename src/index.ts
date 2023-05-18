@@ -23,6 +23,9 @@ app.use(cors());
 //set parse to json
 app.use(express.json());
 
+//set url
+app.use(express.urlencoded({ extended: true }));
+
 //set multer config
 app.use('/images', express.static(path.join('images')));
 
@@ -30,7 +33,7 @@ app.use('/images', express.static(path.join('images')));
 app.set('view engine', 'ejs');
 
 //set route
-// app.use('/api/v1', indexRoutes);
+app.use('/api/v1', indexRoutes);
 
 //io server
 io.on('connection', (socket) => {

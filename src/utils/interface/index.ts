@@ -1,3 +1,5 @@
+import { Schema } from 'mongoose';
+
 export interface IUser {
   _id: string;
   fullname: string;
@@ -26,6 +28,7 @@ export interface IOtp {
 export interface IPost {
   _id: string;
   user_id: string;
+  users: string;
   title: string;
   category: string;
   description: string;
@@ -40,6 +43,7 @@ export interface IPost {
 export interface Icomment {
   _id: string;
   user_id: string;
+  users: Schema.Types.ObjectId;
   text: string;
   likes: number;
   dislikes: number;

@@ -6,6 +6,7 @@ const postSchema = new Schema<IPost>(
   {
     _id: { type: String, default: uuidv4 },
     user_id: { type: String, required: true },
+    users: { type: String, ref: 'user' },
     title: { type: String, required: true },
     category: { type: String, required: true },
     description: { type: String },
