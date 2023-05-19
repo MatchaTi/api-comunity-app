@@ -12,7 +12,7 @@ export const getPost = async (req: Request, res: Response) => {
     if (category) {
       const data = await post
         .find({ category })
-        .populate('users', '-credential.password')
+        .populate('users', 'credential.email username job')
         .skip(parseInt(start))
         .limit(parseInt(limit));
       return res.status(200).json({ data });

@@ -11,6 +11,7 @@ const userSchema = new Schema<IUser>(
       email: { type: String, unique: true },
       password: { type: String }
     },
+    job: { type: String },
     roles: { type: String, default: 'user' },
     badge: {
       type: [
