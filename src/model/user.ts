@@ -12,8 +12,22 @@ const userSchema = new Schema<IUser>(
       password: { type: String }
     },
     roles: { type: String, default: 'user' },
-    image: { type: String },
-    isActive: { type: Boolean, default: false }
+    badge: {
+      type: [
+        {
+          name: { type: String },
+          description: { type: String },
+          type: { type: String },
+          created_at: { type: Number }
+        }
+      ],
+      default: []
+    },
+    avatar: { type: String },
+    isActive: { type: Boolean, default: false },
+    following: { type: [String], default: [] },
+    followers: { type: [String], default: [] },
+    saved: { type: [String], default: [] }
   },
   {
     timestamps: true

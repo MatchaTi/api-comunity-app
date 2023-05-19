@@ -9,8 +9,8 @@ export interface IUser {
     password: string;
   };
   job: string;
-  image: string;
-  badge: string;
+  avatar: string;
+  badge: Array<IBadge>;
   isActive: boolean;
   roles: 'user' | 'admin';
   following: Array<string>;
@@ -49,4 +49,11 @@ export interface Icomment {
   dislikes: number;
   isEdited: boolean;
   reply?: Array<Icomment>;
+}
+
+export interface IBadge {
+  name: string;
+  description: string;
+  type: string;
+  created_at: number;
 }
