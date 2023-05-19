@@ -2,7 +2,8 @@ import { Router } from 'express';
 import {
   createPost,
   deletePost,
-  getPost,
+  getPostByCategories,
+  getPostByUsers,
   updatePost
 } from '../controller/postController';
 import {
@@ -12,7 +13,8 @@ import {
 
 const router = Router();
 
-router.get('/index/:user_id/:start/:limit', getPost);
+router.get('/index/:category/:start/:limit', getPostByCategories);
+router.get('/index/:username/:start/:limit', getPostByUsers);
 router.post('/create/:user_id', createPostValidator(), createPost);
 router.put('/update/:post_id', updatePostValidator(), updatePost);
 router.delete('/delete/:post_id', deletePost);

@@ -55,5 +55,5 @@ export interface IBadge {
   name: string;
   description: string;
   type: string;
-  created_at: number;
+  created_at: string;
 }

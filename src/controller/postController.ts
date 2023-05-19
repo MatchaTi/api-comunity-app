@@ -3,22 +3,29 @@ import post from '../model/post';
 import { validationResult } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
 
-export const getPost = async (req: Request, res: Response) => {
-  const { user_id, start, limit } = req.params;
-
-  const category = req.query.category;
+export const getPostByCategories = async (req: Request, res: Response) => {
+  const { category, start, limit } = req.params;
 
   try {
-    if (category) {
-      const data = await post
-        .find({ category })
-        .populate('users', 'credential.email username job')
-        .skip(parseInt(start))
-        .limit(parseInt(limit));
-      return res.status(200).json({ data });
-    }
     const data = await post
-      .find({ user_id })
+      .find({ category })
+      .sort({ _id: -1 })
+      .populate('users', 'credential.email username job')
+      .skip(parseInt(start))
+      .limit(parseInt(limit));
+    return res.status(200).json({ data });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
+
+export const getPostByUsers = async (req: Request, res: Response) => {
+  const { username, start, limit } = req.params;
+
+  try {
+    const data = await post
+      .find({ username })
+      .sort({ _id: -1 })
       .populate('users')
       .skip(parseInt(start))
       .limit(parseInt(limit));

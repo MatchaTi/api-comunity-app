@@ -19,7 +19,7 @@ const userSchema = new Schema<IUser>(
           name: { type: String },
           description: { type: String },
           type: { type: String },
-          created_at: { type: Number }
+          created_at: { type: String }
         }
       ],
       default: []
