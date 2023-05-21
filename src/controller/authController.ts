@@ -32,7 +32,6 @@ export const register = async (req: Request, res: Response) => {
     await data.save();
     await createOtpToken(data.credential.email);
     res.status(200).json({
-      data,
       message: 'Akun Sudah Teregistrasi, Harap Untuk MemVerfikasi Akun Anda'
     });
   } catch (error) {
