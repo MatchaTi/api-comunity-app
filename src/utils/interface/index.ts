@@ -38,6 +38,8 @@ export interface IPost {
   isEdited: boolean;
   likes: number;
   dislikes: number;
+  link_repo: string;
+  link_demo: string;
 }
 
 export interface Icomment {
