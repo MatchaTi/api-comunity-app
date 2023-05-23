@@ -4,7 +4,7 @@ import { Server as socketServer } from 'socket.io';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { dbConnect } from './databases/connection';
-import indexRoutes from './routes/index';
+import rootRoute from './routes/rootRoute';
 import path from 'path';
 
 dotenv.config();
@@ -33,7 +33,7 @@ app.use('/images', express.static(path.join('images')));
 app.set('view engine', 'ejs');
 
 //set route
-app.use('/api/v1', indexRoutes);
+app.use('/api/v1', rootRoute);
 
 //io server
 io.on('connection', (socket) => {

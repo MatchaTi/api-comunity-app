@@ -1,6 +1,7 @@
 import multer from 'multer';
 import authRouter from './authRoute';
 import postRouter from './postRoute';
+import userRouter from './userRoute';
 import { Router } from 'express';
 import { fileFilter, fileStorage } from '../config/multer';
 import { jwtMiddleware } from '../middleware/jwtMiddleware';
@@ -16,5 +17,6 @@ rootRouter.use(
   ],
   postRouter
 );
+rootRouter.use('/user', userRouter);
 
 export default rootRouter;
