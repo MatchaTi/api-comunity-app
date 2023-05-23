@@ -3,37 +3,64 @@ import post from '../model/post';
 import { validationResult } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
 
-export const getPostByCategories = async (req: Request, res: Response) => {
-  const { category, start, limit } = req.params;
+export const getIndex = async (req: Request, res: Response) => {
+  const { start, limit } = req.params;
+  const { category, username, title } = req.query;
 
   try {
     const data = await post
-      .find({ category })
+      .find({ category, username, title })
       .sort({ _id: -1 })
       .populate('users', 'credential.email username job')
       .skip(parseInt(start))
       .limit(parseInt(limit));
-    return res.status(200).json({ data });
-  } catch (error) {
-    res.status(404).json({ message: error });
-  }
-};
 
-export const getPostByUsers = async (req: Request, res: Response) => {
-  const { username, start, limit } = req.params;
-
-  try {
-    const data = await post
-      .find({ username })
-      .sort({ _id: -1 })
-      .populate('users')
-      .skip(parseInt(start))
-      .limit(parseInt(limit));
     res.status(200).json({ data });
   } catch (error) {
     res.status(404).json({ message: error });
   }
 };
+// export const getPostByCategories = async (req: Request, res: Response) => {
+//   const { category, start, limit } = req.params;
+
+//   try {
+//     const data = await post
+//       .find({ category })
+//       .sort({ _id: -1 })
+//       .populate('users', 'credential.email username job')
+//       .skip(parseInt(start))
+//       .limit(parseInt(limit));
+//     return res.status(200).json({ data });
+//   } catch (error) {
+//     res.status(404).json({ message: error });
+//   }
+// };
+
+// export const getPostByUsers = async (req: Request, res: Response) => {
+//   const { username, start, limit } = req.params;
+
+//   try {
+//     const data = await post
+//       .find({ username })
+//       .sort({ _id: -1 })
+//       .populate('users')
+//       .skip(parseInt(start))
+//       .limit(parseInt(limit));
+//     res.status(200).json({ data });
+//   } catch (error) {
+//     res.status(404).json({ message: error });
+//   }
+// };
+
+// export const getPostByTitle = async (req: Request, res: Response) => {
+//   const { title } = req.params;
+//   try {
+//     const data = await post.find({ title }).sort({ _id: -1 }).limit(15);
+//     res.status(200).json({ data });
+//   } catch (error) {
+//     res.status(200).json({ message: error });
+//   }
+// };
 
 export const createPost = async (req: Request, res: Response) => {
   const resultValidator = validationResult(req);
