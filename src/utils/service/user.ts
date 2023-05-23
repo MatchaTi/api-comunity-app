@@ -1,7 +1,7 @@
 import user from '../../model/user';
 
 export const generateUsername = async (fullname: string) => {
-  let username = `@${fullname}`;
+  let username = `@${fullname.replace(/\s/g, '')}`;
 
   const check = await user.findOne({ username });
 
