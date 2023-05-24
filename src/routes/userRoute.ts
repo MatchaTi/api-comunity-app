@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { getIndex } from '../controller/postController';
+import { getIndexUsers } from '../controller/userController';
 
 const router: Router = Router();
 
-router.get('/:username', getIndex);
+router.get('/:username', getIndexUsers);
 
 export default router;

@@ -2,11 +2,13 @@ import user from '../model/user';
 
 import { Request, Response } from 'express';
 
-export const getIndex = async (req: Request, res: Response) => {
+export const getIndexUsers = async (req: Request, res: Response) => {
   const { username } = req.params;
 
   try {
-    const data = await user.find({ username }).sort({ _id: -1 }).limit(15);
+    const data = await user
+      .find({ username: { $regex: username, $options: 'i' } }, 'username')
+      .limit(15);
 
     res.status(200).json({ data });
   } catch (error) {
