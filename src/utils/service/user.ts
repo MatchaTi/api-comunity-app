@@ -1,7 +1,7 @@
 import user from '../../model/user';
 
-export const generateUsername = async (fullname: string) => {
-  let username = `@${fullname.replace(/\s/g, '')}`;
+export const generateUsername = async (fullname: string): Promise<string> => {
+  let username = `@${fullname.toLowerCase().replace(/\s/g, '')}`;
 
   const check = await user.findOne({ username });
 
