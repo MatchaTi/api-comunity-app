@@ -52,6 +52,9 @@ export const createPost = async (req: Request, res: Response) => {
   if (!resultValidator.isEmpty()) {
     return res.json({ error: resultValidator.array() });
   }
+
+  //ganti code jadi syntax jangan lupa di destruct
+
   const { user_id } = req.params;
   const data = new post({
     _id: uuidv4(),

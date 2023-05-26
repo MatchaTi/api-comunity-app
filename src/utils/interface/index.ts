@@ -32,14 +32,17 @@ export interface IPost {
   title: string;
   category: string;
   description: string;
-  code: string;
+  code: {
+    syntax: string;
+    path_file: string;
+  };
   image: string;
   comment?: Array<Icomment>;
   isEdited: boolean;
   likes: number;
   dislikes: number;
-  link_repo: string;
-  link_demo: string;
+  linkSourceCode: string;
+  linkLiveDemo: string;
 }
 
 export interface Icomment {

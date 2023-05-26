@@ -10,14 +10,17 @@ const postSchema = new Schema<IPost>(
     title: { type: String, required: true },
     category: { type: String, required: true },
     description: { type: String },
-    code: { type: String },
+    code: {
+      syntax: { type: String },
+      path_file: { type: String }
+    },
     image: { type: String },
     comment: { type: Array<Icomment> },
     isEdited: { type: Boolean, default: false },
     likes: { type: Number, default: 0 },
     dislikes: { type: Number, default: 0 },
-    link_repo: { type: String },
-    link_demo: { type: String }
+    linkSourceCode: { type: String },
+    linkLiveDemo: { type: String }
   },
   {
     timestamps: true
