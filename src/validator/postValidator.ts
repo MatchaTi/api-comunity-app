@@ -3,15 +3,13 @@ import { body } from 'express-validator';
 export const createPostValidator = () => [
   body('title')
     .isString()
-    .withMessage('Title harus String')
     .isLength({ max: 80 })
-    .withMessage('Panjang litle lebih dari 80'),
-  body('category').isString().withMessage('Category harus string'),
+    .withMessage('Jumlah maximal 80 karakter'),
+  body('category').isString(),
   body('description')
     .isString()
-    .withMessage('Description harus string')
     .isLength({ max: 4000 })
-    .withMessage('Panjang kata description lebih dari 4000')
+    .withMessage('Jumlah maximal 4000 karakter')
     .optional(),
   body('code').isString().optional(),
   body('linkSourceCode').isString().optional(),
@@ -19,8 +17,18 @@ export const createPostValidator = () => [
 ];
 
 export const updatePostValidator = () => [
-  body('title').isString().isLength({ max: 80 }).optional(),
+  body('title')
+    .isString()
+    .isLength({ max: 80 })
+    .withMessage('Jumlah maximal 80 karakter')
+    .optional(),
   body('category').isString().optional(),
-  body('description').isString().optional(),
-  body('code').isString().optional()
+  body('description')
+    .isString()
+    .isLength({ max: 4000 })
+    .withMessage('Jumlah maximal 4000 karakter')
+    .optional(),
+  body('code').isString().optional(),
+  body('linkSourceCode').isString().optional(),
+  body('linkLiveDemo').isString().optional()
 ];
