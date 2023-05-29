@@ -18,7 +18,6 @@ const postSchema = new Schema<IPost>(
     comment: { type: Array<Icomment> },
     isEdited: { type: Boolean, default: false },
     likes: { type: Number, default: 0 },
-    dislikes: { type: Number, default: 0 },
     linkSourceCode: { type: String },
     linkLiveDemo: { type: String }
   },
