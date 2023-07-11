@@ -1,5 +1,7 @@
 ## DOKUMENTASI API COMMITAN
 
+### AUTH ROUTES
+
 <table>
   <tr>
     <th colspan="5">Auth Routes</th>
