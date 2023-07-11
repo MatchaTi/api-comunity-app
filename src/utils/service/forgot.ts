@@ -28,13 +28,15 @@ export const createForgotRoute = async ({ _id, credential }: IUser) => {
     });
 
     // send mail with defined transport object
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: process.env.EMAIL_USER, // sender address
       to: credential.email, // list of receivers
       subject: 'COMMITAN', // Subject line
       text: 'Mengganti password Akun COMMITAN Anda', // plain text body
       html: view // html body
     });
+
+    console.log(info.messageId);
   } catch (error) {
     console.log(error);
   }

@@ -16,6 +16,7 @@ export interface IUser {
   following: Array<string>;
   followers: Array<string>;
   saved: Array<string>;
+  interest: Array<string>;
 }
 
 export interface IOtp {
@@ -40,7 +41,6 @@ export interface IPost {
   comment?: Array<Icomment>;
   isEdited: boolean;
   likes: number;
-  dislikes: number;
   linkSourceCode: string;
   linkLiveDemo: string;
 }

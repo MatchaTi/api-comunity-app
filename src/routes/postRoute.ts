@@ -6,7 +6,7 @@ import {
   getPostByTitle,
   getPostByUsers,
   updatePost
-} from '../controller/postController';
+} from '../controller/post/postController';
 import {
   createPostValidator,
   updatePostValidator
@@ -15,7 +15,7 @@ import {
 const router = Router();
 
 router.get('/index/category/:category/:start/:limit', getPostByCategories);
-router.get('/index/users/:user_id', getPostByUsers);
+router.get('/index/users/:username', getPostByUsers);
 router.get('/index/title/:title', getPostByTitle);
 router.post('/create/:user_id', createPostValidator(), createPost);
 router.put('/update/:post_id', updatePostValidator(), updatePost);

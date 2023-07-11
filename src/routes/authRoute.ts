@@ -6,7 +6,7 @@ import {
   sendForgotPassword,
   sendTokenRegister,
   verifyTokenRegister
-} from '../controller/authController';
+} from '../controller/auth/authController';
 import {
   forgotValidator,
   loginValidator,

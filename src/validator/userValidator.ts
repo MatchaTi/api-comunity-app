@@ -8,25 +8,24 @@ export const registerValidator = () => [
     .custom(async (value) => {
       const existingUser = await user.findOne({ email: value });
       if (existingUser) {
-        throw new Error('E-mail already in use');
+        throw new Error('A user already exists with this e-mail address');
       }
-      return true;
     }),
   body('password')
     .isString()
     .isLength({ min: 6 })
-    .withMessage('Jumlah minimal 6 karakter'),
+    .withMessage('Password : Jumlah minimal 6 karakter'),
   body('fullname')
     .isString()
     .isLength({ min: 4, max: 28 })
-    .withMessage('Jumlah maximal 28 dan minimal 4 karakter')
+    .withMessage('Fullname : Jumlah maximal 28 dan minimal 4 karakter')
 ];
 
 export const verifyValidator = () => [
-  body('email').isEmail().withMessage('Type email tidak valid'),
+  body('email').isEmail().withMessage('Email : Type email tidak valid'),
   body('otp_number')
     .isNumeric()
-    .withMessage('karakter bukan numeric')
+    .withMessage('otp number : karakter bukan numeric')
     .isLength({ min: 6, max: 6 })
     .withMessage('jumlah karakter tidak valid')
 ];
