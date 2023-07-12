@@ -8,6 +8,7 @@ export interface IUser {
     email: string;
     password: string;
   };
+  bio: string;
   job: string;
   avatar: string;
   badge: Array<IBadge>;
