@@ -49,3 +49,5 @@ export const forgotValidator = () => [
     .isLength({ min: 6 })
     .withMessage('Jumlah minimal 6 karakter')
 ];
+
+export const interestValidator = () => [body('interest').isArray()];

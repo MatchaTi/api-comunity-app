@@ -7,19 +7,14 @@ export const addUserInterest = async (req: Request, res: Response) => {
   if (!resultValidator.isEmpty()) {
     return res.json({ error: resultValidator.array() });
   }
-  const { user_id } = req.params;
-
-  const users = await user.findById(user_id);
-
-  if (!users) throw 'users tidak ditemukan';
-
-  const { interest } = users;
 
   try {
-    await user.findByIdAndUpdate(user_id, {
-      interest: [...interest, ...req.body.interest],
-      ...req.body
-    });
+    await user.updateOne(
+      { _id: req.params.user_id },
+      {
+        $addToSet: { interest: req.body.interest }
+      }
+    );
     res.status(200).json({
       message: 'Berhasil menambahkan interest'
     });
