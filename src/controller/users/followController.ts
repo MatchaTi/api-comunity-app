@@ -7,7 +7,7 @@ export const followingUser = async (req: Request, res: Response) => {
     const data = await user.updateOne(
       { _id: user_id },
       {
-        $push: { following: user_follow_id }
+        $addToSet: { following: user_follow_id }
       }
     );
     if (data.modifiedCount == 0) throw 'Gagal Menambahkan Teman';
