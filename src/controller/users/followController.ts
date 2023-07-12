@@ -4,13 +4,23 @@ import user from '../../model/user';
 export const followingUser = async (req: Request, res: Response) => {
   const { user_id, user_follow_id } = req.params;
   try {
-    const data = await user.updateOne(
+    const userFollow = await user.updateOne(
       { _id: user_id },
       {
         $addToSet: { following: user_follow_id }
       }
     );
-    if (data.modifiedCount == 0) throw 'Gagal Menambahkan Teman';
+    const userFollowingReceive = await user.updateOne(
+      { _id: user_follow_id },
+      {
+        $addToSet: { following: user_id }
+      }
+    );
+    if (
+      userFollow.modifiedCount == 0 ||
+      userFollowingReceive.modifiedCount == 0
+    )
+      throw 'Gagal Menambahkan Teman';
     res.status(200).json({
       message: 'Berhasil Menambahkan Teman'
     });
@@ -22,13 +32,23 @@ export const followingUser = async (req: Request, res: Response) => {
 export const unFollowUser = async (req: Request, res: Response) => {
   const { user_id, user_follow_id } = req.params;
   try {
-    const data = await user.updateOne(
+    const userFollow = await user.updateOne(
       { _id: user_id },
       {
         $pull: { following: user_follow_id }
       }
     );
-    if (data.modifiedCount == 0) throw 'Gagal Menghapus Teman';
+    const userFollowingReceive = await user.updateOne(
+      { _id: user_follow_id },
+      {
+        $pull: { following: user_id }
+      }
+    );
+    if (
+      userFollow.modifiedCount == 0 ||
+      userFollowingReceive.modifiedCount == 0
+    )
+      throw 'Gagal Menambahkan Teman';
     res.status(200).json({
       message: 'Berhasil Menghapus Teman'
     });

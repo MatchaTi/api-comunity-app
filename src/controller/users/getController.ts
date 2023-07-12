@@ -40,3 +40,22 @@ export const getSavedPostUsers = async (
     res.status(404).json({ message: error });
   }
 };
+
+export const getUserfollowing = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { user_id, start, limit } = req.params;
+
+  try {
+    const data = await user
+      .findOne({ _id: user_id }, 'saved')
+      .populate('saved')
+      .skip(parseInt(start))
+      .limit(parseInt(limit));
+
+    res.status(200).json({ data });
+  } catch (error) {
+    res.status(404).json({ message: error });
+  }
+};
