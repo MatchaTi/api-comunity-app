@@ -6,7 +6,10 @@ export const getIndexUsers = async (req: Request, res: Response) => {
 
   try {
     const data = await user
-      .find({ username: { $regex: username, $options: 'i' } }, 'username')
+      .find(
+        { username: { $regex: username, $options: 'i' } },
+        'username avatar'
+      )
       .skip(parseInt(start))
       .limit(parseInt(limit));
 
