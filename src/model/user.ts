@@ -29,7 +29,7 @@ const userSchema = new Schema<IUser>(
     isActive: { type: Boolean, default: false },
     following: { type: [String], default: [] },
     followers: { type: [String], default: [] },
-    saved: { type: [String], default: [] },
+    saved: [{ type: String, default: [], ref: 'post' }],
     interest: { type: [String], default: [] }
   },
   {
