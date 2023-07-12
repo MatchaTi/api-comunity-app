@@ -1,4 +1,9 @@
-import { getIndexUsers, getSavedPostUsers } from './getController';
+import {
+  getIndexUsers,
+  getSavedPostUsers,
+  getUserfollowing,
+  getUserfollowers
+} from './getController';
 import { addUserInterest } from './interestController';
 import { followingUser, unFollowUser } from './followController';
 import { likeUser, unLikeUser } from './likeController';
@@ -13,5 +18,7 @@ export {
   unLikeUser,
   savePostByUser,
   deleteSavePostByUser,
-  getSavedPostUsers
+  getSavedPostUsers,
+  getUserfollowers,
+  getUserfollowing
 };
