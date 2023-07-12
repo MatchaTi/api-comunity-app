@@ -13,7 +13,7 @@ export const followingUser = async (req: Request, res: Response) => {
     const userFollowingReceive = await user.updateOne(
       { _id: user_follow_id },
       {
-        $addToSet: { following: user_id }
+        $addToSet: { followers: user_id }
       }
     );
     if (
@@ -41,7 +41,7 @@ export const unFollowUser = async (req: Request, res: Response) => {
     const userFollowingReceive = await user.updateOne(
       { _id: user_follow_id },
       {
-        $pull: { following: user_id }
+        $pull: { followers: user_id }
       }
     );
     if (
