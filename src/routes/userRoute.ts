@@ -3,7 +3,9 @@ import {
   getIndexUsers,
   followingUser,
   unFollowUser,
-  addUserInterest
+  addUserInterest,
+  likeUser,
+  unLikeUser
 } from '../controller/users';
 import { interestValidator } from '../validator/userValidator';
 
@@ -13,5 +15,7 @@ router.get('/:username/:start/:limit', getIndexUsers);
 router.patch('/follow/:user_id/:user_follow_id', followingUser);
 router.patch('/unfollow/:user_id/:user_follow_id', unFollowUser);
 router.patch('/interest/:user_id', interestValidator(), addUserInterest);
+router.patch('/likes/:post_id', likeUser);
+router.patch('/unlikes/:post_id', unLikeUser);
 
 export default router;
