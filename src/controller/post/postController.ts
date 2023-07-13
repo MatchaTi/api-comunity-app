@@ -3,7 +3,10 @@ import post from '../../model/post';
 import { validationResult } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
 
-export const getPostByCategories = async (req: Request, res: Response) => {
+export const getPostByCategories = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const { category, start, limit } = req.params;
 
   try {
@@ -13,13 +16,16 @@ export const getPostByCategories = async (req: Request, res: Response) => {
       .populate('users', 'credential.email username job')
       .skip(parseInt(start))
       .limit(parseInt(limit));
-    return res.status(200).json({ data });
+    res.status(200).json({ data });
   } catch (error) {
     res.status(404).json({ message: error });
   }
 };
 
-export const getPostByUsers = async (req: Request, res: Response) => {
+export const getPostByUsers = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const { username } = req.params;
 
   try {
@@ -34,7 +40,10 @@ export const getPostByUsers = async (req: Request, res: Response) => {
   }
 };
 
-export const getPostByTitle = async (req: Request, res: Response) => {
+export const getPostByTitle = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const { title } = req.params;
   try {
     const data = await post
@@ -47,10 +56,14 @@ export const getPostByTitle = async (req: Request, res: Response) => {
   }
 };
 
-export const createPost = async (req: Request, res: Response) => {
+export const createPost = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
-    return res.json({ error: resultValidator.array() });
+    res.json({ error: resultValidator.array() });
+    return;
   }
 
   const { user_id } = req.params;
@@ -73,10 +86,14 @@ export const createPost = async (req: Request, res: Response) => {
   }
 };
 
-export const updatePost = async (req: Request, res: Response) => {
+export const updatePost = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
-    return res.json({ error: resultValidator.array() });
+    res.json({ error: resultValidator.array() });
+    return;
   }
 
   const { post_id } = req.params;
@@ -94,10 +111,14 @@ export const updatePost = async (req: Request, res: Response) => {
   }
 };
 
-export const deletePost = async (req: Request, res: Response) => {
+export const deletePost = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
-    return res.json({ error: resultValidator.array() });
+    res.json({ error: resultValidator.array() });
+    return;
   }
 
   const { post_id } = req.params;

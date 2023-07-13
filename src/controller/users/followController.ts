@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import user from '../../model/user';
 
-export const followingUser = async (req: Request, res: Response) => {
+export const followingUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const { user_id, user_follow_id } = req.params;
   try {
     const userFollow = await user.updateOne(
@@ -29,7 +32,10 @@ export const followingUser = async (req: Request, res: Response) => {
   }
 };
 
-export const unFollowUser = async (req: Request, res: Response) => {
+export const unFollowUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const { user_id, user_follow_id } = req.params;
   try {
     const userFollow = await user.updateOne(

@@ -10,11 +10,12 @@ import otp from '../../model/otp';
 import { createForgotRoute } from '../../utils/service/forgot';
 import { expireTime } from '../../utils/service/time';
 
-export const register = async (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response): Promise<void> => {
   const salt = await bcrypt.genSalt(10);
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
-    return res.json({ error: resultValidator.array() });
+    res.json({ error: resultValidator.array() });
+    return;
   }
 
   const username = await generateUsername(req.body.fullname);
@@ -39,10 +40,14 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-export const verifyTokenRegister = async (req: Request, res: Response) => {
+export const verifyTokenRegister = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
-    return res.json({ error: resultValidator.array() });
+    res.json({ error: resultValidator.array() });
+    return;
   }
   try {
     const users = await user.findOne({
@@ -67,7 +72,10 @@ export const verifyTokenRegister = async (req: Request, res: Response) => {
   }
 };
 
-export const sendTokenRegister = async (req: Request, res: Response) => {
+export const sendTokenRegister = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const users = await user.findOne({
       'credential.email': req.body.email
@@ -83,7 +91,7 @@ export const sendTokenRegister = async (req: Request, res: Response) => {
   }
 };
 
-export const login = async (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response): Promise<void> => {
   try {
     const users = await user.findOne({
       'credential.email': req.body.email
@@ -108,7 +116,10 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 
-export const forgotPassword = async (req: Request, res: Response) => {
+export const forgotPassword = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const salt = await bcrypt.genSalt(10);
 
   try {
@@ -133,7 +144,10 @@ export const forgotPassword = async (req: Request, res: Response) => {
   }
 };
 
-export const sendForgotPassword = async (req: Request, res: Response) => {
+export const sendForgotPassword = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const users = await user.findOne({
       'credential.email': req.body.email

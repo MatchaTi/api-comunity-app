@@ -2,10 +2,14 @@ import { validationResult } from 'express-validator';
 import { Request, Response } from 'express';
 import user from '../../model/user';
 
-export const addUserInterest = async (req: Request, res: Response) => {
+export const addUserInterest = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
-    return res.json({ error: resultValidator.array() });
+    res.json({ error: resultValidator.array() });
+    return;
   }
 
   try {
