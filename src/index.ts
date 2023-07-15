@@ -11,7 +11,14 @@ dotenv.config();
 
 const app: Express = express();
 const server: Server = http.createServer(app);
-const io: socketServer = new socketServer(server);
+const io: socketServer = new socketServer(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['my-custom-header'],
+    credentials: true
+  }
+});
 const port = process.env.PORT || 5000;
 
 //connect db
@@ -37,10 +44,14 @@ app.use('/api/v1', rootRoute);
 
 //io server
 io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('chat message', (msg) => {
-    console.log(msg);
+  socket.on('kirim-notifikasi', (pesan) => {
+    console.log(pesan);
+    socket.broadcast.emit('notifikasi-baru', pesan);
   });
+});
+
+io.on('disconnect', (reason) => {
+  console.log(reason);
 });
 
 app.get('/', (req: Request, res: Response) => {
