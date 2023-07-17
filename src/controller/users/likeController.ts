@@ -6,7 +6,7 @@ export const likeUser = async (req: Request, res: Response): Promise<void> => {
     await post.updateOne({ _id: req.params.post_id }, { $inc: { likes: 1 } });
     res.status(200).json({ message: 'berhasil menyukai post' });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };
 export const unLikeUser = async (
@@ -17,6 +17,6 @@ export const unLikeUser = async (
     await post.updateOne({ _id: req.params.post_id }, { $inc: { likes: -1 } });
     res.status(200).json({ message: 'berhasil membatalkan menyukai post' });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };

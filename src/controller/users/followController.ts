@@ -28,7 +28,7 @@ export const followingUser = async (
       message: 'Berhasil Menambahkan Teman'
     });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };
 
@@ -59,6 +59,6 @@ export const unFollowUser = async (
       message: 'Berhasil Menghapus Teman'
     });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };

@@ -36,7 +36,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       message: 'Akun Sudah Teregistrasi, Harap Untuk MemVerfikasi Akun Anda'
     });
   } catch (error) {
-    res.status(404).json({ error: [{ msg: error }] });
+    res.status(400).json({ error: [{ msg: error }] });
   }
 };
 
@@ -68,7 +68,7 @@ export const verifyTokenRegister = async (
       message: 'berhasil menverifikasi akun'
     });
   } catch (error) {
-    res.status(404).json({ error: [{ msg: error }] });
+    res.status(400).json({ error: [{ msg: error }] });
   }
 };
 
@@ -87,7 +87,7 @@ export const sendTokenRegister = async (
       message: 'Harap Untuk Cek Email Anda Untuk Token Verifikasi'
     });
   } catch (error) {
-    res.status(404).json({ error: [{ msg: error }] });
+    res.status(400).json({ error: [{ msg: error }] });
   }
 };
 
@@ -112,7 +112,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       token: tokenJWT
     });
   } catch (error) {
-    res.status(404).json({ error: [{ msg: error }] });
+    res.status(400).json({ error: [{ msg: error }] });
   }
 };
 
@@ -162,6 +162,6 @@ export const sendForgotPassword = async (
       message: 'harap cek email untuk mengganti password'
     });
   } catch (error) {
-    res.status(404).json({ error: [{ msg: error }] });
+    res.status(400).json({ error: [{ msg: error }] });
   }
 };

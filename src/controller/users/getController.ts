@@ -18,7 +18,7 @@ export const getIndexUsers = async (
 
     res.status(200).json({ data });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };
 

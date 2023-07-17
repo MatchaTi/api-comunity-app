@@ -23,6 +23,6 @@ export const addUserInterest = async (
       message: 'Berhasil menambahkan interest'
     });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };

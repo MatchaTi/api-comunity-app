@@ -18,7 +18,7 @@ export const savePostByUser = async (
       message: 'Berhasil Menyimpan Post'
     });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };
 
@@ -39,6 +39,6 @@ export const deleteSavePostByUser = async (
       message: 'Berhasil Menghapus Post'
     });
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(400).json({ message: error });
   }
 };
