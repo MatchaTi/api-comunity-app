@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken';
 import { IUser } from '../interface';
 
-export const createToken = ({ username, roles }: IUser) => {
+export const createToken = ({ _id, username, roles }: IUser) => {
   const option = {
     expiresIn: '30d'
   };
 
-  return jwt.sign({ username, roles }, process.env.JWT_SECRET, option);
+  return jwt.sign({ _id, username, roles }, process.env.JWT_SECRET, option);
 };
 
 export const createForgotToken = (_id: string) => {
