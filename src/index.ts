@@ -6,20 +6,15 @@ import cors from 'cors';
 import { dbConnect } from './databases/connection';
 import rootRoute from './routes/rootRoute';
 import path from 'path';
+import { socketInit } from './config/socket';
 
 dotenv.config();
 
 const app: Express = express();
 const server: Server = http.createServer(app);
-const io: socketServer = new socketServer(server, {
-  cors: {
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['my-custom-header'],
-    credentials: true
-  }
-});
+
 const port = process.env.PORT || 5000;
+export const io: socketServer = socketInit(server);
 
 //connect db
 dbConnect();
