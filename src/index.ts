@@ -6,7 +6,8 @@ import cors from 'cors';
 import { dbConnect } from './databases/connection';
 import rootRoute from './routes/rootRoute';
 import path from 'path';
-import { socketInit } from './config/socket';
+import { socketInitServer } from './config/socket';
+import { socketInitialize } from './controller/socket/socketController';
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ const app: Express = express();
 const server: Server = http.createServer(app);
 
 const port = process.env.PORT || 5000;
-export const io: socketServer = socketInit(server);
+const io: socketServer = socketInitServer(server);
 
 //connect db
 dbConnect();
@@ -37,21 +38,8 @@ app.set('view engine', 'ejs');
 //set route
 app.use('/api/v1', rootRoute);
 
-//io server
-io.on('connection', (socket) => {
-  socket.on('kirim-notifikasi', (pesan) => {
-    console.log(pesan);
-    socket.broadcast.emit('notifikasi-baru', pesan);
-  });
-});
-
-io.on('disconnect', (reason) => {
-  console.log(reason);
-});
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome To API Community App');
-});
+//socket server
+socketInitialize(io);
 
 server.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
