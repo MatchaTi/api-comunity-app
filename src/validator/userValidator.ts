@@ -6,9 +6,9 @@ export const registerValidator = () => [
     .isEmail()
     .withMessage('Type email tidak valid')
     .custom(async (value) => {
-      const existingUser = await user.findOne({ email: value });
+      const existingUser = await user.findOne({ 'credential.email': value });
       if (existingUser) {
-        throw new Error('A user already exists with this e-mail address');
+        throw 'Email Sudah Terdaftar';
       }
     }),
   body('password')
