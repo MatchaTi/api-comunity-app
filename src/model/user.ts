@@ -34,7 +34,7 @@ const userSchema = new Schema<IUser>(
     interest: { type: [String], default: [] },
     notification: [
       {
-        username: { type: String },
+        user_id: { type: String },
         description: { type: String },
         created_at: { type: String }
       }
