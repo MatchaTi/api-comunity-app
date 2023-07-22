@@ -64,8 +64,10 @@ export const verifyTokenRegister = async (
     await users.updateOne({ isActive: true });
     await otp.findOneAndRemove({ email: req.body.email });
 
+    const tokenJWT = createToken(users);
     res.status(200).json({
-      message: 'berhasil menverifikasi akun'
+      message: 'berhasil menverifikasi akun',
+      token: tokenJWT
     });
   } catch (error) {
     res.status(400).json({ error: [{ msg: error }] });
