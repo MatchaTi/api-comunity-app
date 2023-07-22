@@ -6,6 +6,7 @@ export const followingUser = async (
   res: Response
 ): Promise<void> => {
   const { user_id, user_follow_id } = req.params;
+
   try {
     const userFollow = await user.updateOne(
       { _id: user_id },
@@ -16,7 +17,14 @@ export const followingUser = async (
     const userFollowingReceive = await user.updateOne(
       { _id: user_follow_id },
       {
-        $addToSet: { followers: user_id }
+        $addToSet: {
+          followers: user_id,
+          notification: {
+            user_id,
+            description: 'Mulai Mengikuti Anda',
+            created_at: +new Date()
+          }
+        }
       }
     );
     if (
