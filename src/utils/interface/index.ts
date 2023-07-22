@@ -1,5 +1,3 @@
-import { Schema } from 'mongoose';
-
 export interface IUser {
   _id: string;
   socket_id: string;
@@ -20,6 +18,7 @@ export interface IUser {
   saved: Array<string>;
   interest: Array<string>;
   notification: Array<INotification>;
+  comment: Array<Icomment>;
 }
 
 export interface IOtp {
@@ -51,12 +50,8 @@ export interface IPost {
 export interface Icomment {
   _id: string;
   user_id: string;
-  users: Schema.Types.ObjectId;
   text: string;
-  likes: number;
-  dislikes: number;
   isEdited: boolean;
-  reply?: Array<Icomment>;
 }
 
 export interface IBadge {
