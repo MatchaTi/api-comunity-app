@@ -5,6 +5,7 @@ import { IUser } from '../utils/interface';
 const userSchema = new Schema<IUser>(
   {
     _id: { type: String, default: uuidv4 },
+    socket_id: { type: String },
     username: { type: String, unique: true },
     fullname: { type: String },
     credential: {
@@ -30,7 +31,14 @@ const userSchema = new Schema<IUser>(
     following: { type: [String], default: [] },
     followers: { type: [String], default: [] },
     saved: [{ type: String, default: [], ref: 'post' }],
-    interest: { type: [String], default: [] }
+    interest: { type: [String], default: [] },
+    notification: [
+      {
+        username: { type: String },
+        description: { type: String },
+        created_at: { type: String }
+      }
+    ]
   },
   {
     timestamps: true

@@ -2,6 +2,7 @@ import { Schema } from 'mongoose';
 
 export interface IUser {
   _id: string;
+  socket_id: string;
   fullname: string;
   username: string;
   credential: {
@@ -18,6 +19,7 @@ export interface IUser {
   followers: Array<string>;
   saved: Array<string>;
   interest: Array<string>;
+  notification: Array<INotification>;
 }
 
 export interface IOtp {
@@ -61,5 +63,11 @@ export interface IBadge {
   name: string;
   description: string;
   type: string;
+  created_at: string;
+}
+
+export interface INotification {
+  username: string;
+  description: string;
   created_at: string;
 }
