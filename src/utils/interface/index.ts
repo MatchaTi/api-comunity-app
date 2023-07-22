@@ -63,11 +63,11 @@ export interface IBadge {
   name: string;
   description: string;
   type: string;
-  created_at: string;
+  created_at: number;
 }
 
 export interface INotification {
   user_id: string;
   description: string;
-  created_at: string;
+  created_at: number;
 }

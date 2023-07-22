@@ -21,7 +21,7 @@ const userSchema = new Schema<IUser>(
           name: { type: String },
           description: { type: String },
           type: { type: String },
-          created_at: { type: String }
+          created_at: { type: Number }
         }
       ],
       default: []
@@ -32,13 +32,16 @@ const userSchema = new Schema<IUser>(
     followers: { type: [String], default: [] },
     saved: [{ type: String, default: [], ref: 'post' }],
     interest: { type: [String], default: [] },
-    notification: [
-      {
-        user_id: { type: String },
-        description: { type: String },
-        created_at: { type: String }
-      }
-    ]
+    notification: {
+      type: [
+        {
+          user_id: { type: String },
+          description: { type: String },
+          created_at: { type: Number }
+        }
+      ],
+      default: []
+    }
   },
   {
     timestamps: true
