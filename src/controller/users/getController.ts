@@ -1,5 +1,6 @@
 import user from '../../model/user';
 import { Request, Response } from 'express';
+import { errors } from '../../utils/service/error';
 
 export const getIndexUsers = async (
   req: Request,
@@ -18,7 +19,7 @@ export const getIndexUsers = async (
 
     res.status(200).json({ data });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -37,7 +38,7 @@ export const getSavedPostUsers = async (
 
     res.status(200).json({ data });
   } catch (error) {
-    res.status(404).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -50,7 +51,7 @@ export const getUserfollowing = async (
 
     res.status(200).json({ data });
   } catch (error) {
-    res.status(404).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -63,6 +64,6 @@ export const getUserfollowers = async (
 
     res.status(200).json({ data });
   } catch (error) {
-    res.status(404).json({ message: error });
+    errors(res, 400, error);
   }
 };

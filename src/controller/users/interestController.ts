@@ -1,6 +1,7 @@
 import { validationResult } from 'express-validator';
 import { Request, Response } from 'express';
 import user from '../../model/user';
+import { errors } from '../../utils/service/error';
 
 export const addUserInterest = async (
   req: Request,
@@ -23,6 +24,6 @@ export const addUserInterest = async (
       message: 'Berhasil menambahkan interest'
     });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };

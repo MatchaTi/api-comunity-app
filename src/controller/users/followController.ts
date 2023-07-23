@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import user from '../../model/user';
+import { errors } from '../../utils/service/error';
 
 export const followingUser = async (
   req: Request,
@@ -36,7 +37,7 @@ export const followingUser = async (
       message: 'Berhasil Menambahkan Teman'
     });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -67,6 +68,6 @@ export const unFollowUser = async (
       message: 'Berhasil Menghapus Teman'
     });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };

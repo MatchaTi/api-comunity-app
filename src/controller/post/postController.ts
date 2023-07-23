@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import post from '../../model/post';
 import { validationResult } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
+import { errors } from '../../utils/service/error';
 
 export const getPostByCategories = async (
   req: Request,
@@ -18,7 +19,7 @@ export const getPostByCategories = async (
       .limit(parseInt(limit));
     res.status(200).json({ data });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -36,7 +37,7 @@ export const getPostByUsers = async (
 
     res.status(200).json({ data });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -52,7 +53,7 @@ export const getPostByTitle = async (
       .limit(20);
     res.status(200).json({ data });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -82,7 +83,7 @@ export const createPost = async (
       message: 'data berhasil diposting'
     });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -107,7 +108,7 @@ export const updatePost = async (
       message: 'berhasil mengubah data'
     });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
 
@@ -128,6 +129,6 @@ export const deletePost = async (
       message: 'berhasil menghapus data'
     });
   } catch (error) {
-    res.status(400).json({ message: error });
+    errors(res, 400, error);
   }
 };
