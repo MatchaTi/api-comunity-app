@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
-import { IPost, Icomment } from '../utils/interface';
+import { IPost } from '../utils/interface';
 
 const postSchema = new Schema<IPost>(
   {
