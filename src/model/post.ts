@@ -15,11 +15,21 @@ const postSchema = new Schema<IPost>(
       path_file: { type: String }
     },
     image: { type: String },
-    comment: { type: Array<Icomment> },
+
     isEdited: { type: Boolean, default: false },
     likes: { type: Number, default: 0 },
     linkSourceCode: { type: String },
-    linkLiveDemo: { type: String }
+    linkLiveDemo: { type: String },
+    comment: {
+      type: [
+        {
+          user_id: { type: String },
+          post_id: { type: String },
+          description: { type: String },
+          created_at: { type: Number }
+        }
+      ]
+    }
   },
   {
     timestamps: true

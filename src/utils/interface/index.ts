@@ -18,7 +18,6 @@ export interface IUser {
   saved: Array<string>;
   interest: Array<string>;
   notification: Array<INotification>;
-  comment: Array<Icomment>;
 }
 
 export interface IOtp {
@@ -40,11 +39,11 @@ export interface IPost {
     path_file: string;
   };
   image: string;
-  comment?: Array<Icomment>;
   isEdited: boolean;
   likes: number;
   linkSourceCode: string;
   linkLiveDemo: string;
+  comment: Array<Icomment>;
 }
 
 export interface Icomment {

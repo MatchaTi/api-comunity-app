@@ -42,16 +42,6 @@ const userSchema = new Schema<IUser>(
         }
       ],
       default: []
-    },
-    comment: {
-      type: [
-        {
-          user_id: { type: String },
-          post_id: { type: String },
-          description: { type: String },
-          created_at: { type: Number }
-        }
-      ]
     }
   },
   {
