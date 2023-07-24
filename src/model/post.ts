@@ -23,12 +23,16 @@ const postSchema = new Schema<IPost>(
     comment: {
       type: [
         {
+          _id: { type: String, default: uuidv4 },
           user_id: { type: String },
           post_id: { type: String },
           description: { type: String },
+          isEdited: { type: Boolean, default: false },
           created_at: { type: Number }
         }
-      ]
+      ],
+
+      default: []
     }
   },
   {
