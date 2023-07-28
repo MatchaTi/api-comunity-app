@@ -67,3 +67,17 @@ export const getUserfollowers = async (
     errors(res, 400, error);
   }
 };
+
+export const getUserProfile = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { username } = req.body;
+  try {
+    const data = await user.find({ username }, '-credential');
+
+    res.status(200).json({ data });
+  } catch (error) {
+    errors(res, 400, error);
+  }
+};
