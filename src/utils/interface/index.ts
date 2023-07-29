@@ -43,14 +43,16 @@ export interface IPost {
   likes: number;
   linkSourceCode: string;
   linkLiveDemo: string;
-  comment: Array<Icomment>;
+  comment: Array<IComment>;
 }
 
-export interface Icomment {
+export interface IComment {
   _id: string;
+  post_id: string;
   user_id: string;
-  text: string;
+  description: string;
   isEdited: boolean;
+  created_at: number;
 }
 
 export interface IBadge {
