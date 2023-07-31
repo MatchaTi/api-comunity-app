@@ -23,7 +23,7 @@ export const followingUser = async (
           notification: {
             user_id,
             description: 'Mulai Mengikuti Anda',
-            created_at: +new Date()
+            created_at: new Date()
           }
         }
       }
