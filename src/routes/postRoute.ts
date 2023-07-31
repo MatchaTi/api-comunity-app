@@ -2,7 +2,9 @@ import { Router } from 'express';
 import {
   createPost,
   deletePost,
+  getAllPost,
   getPostByCategories,
+  getPostById,
   getPostByTitle,
   getPostByUsers,
   updatePost
@@ -14,6 +16,8 @@ import {
 
 const router = Router();
 
+router.get('/index/:id', getPostById);
+router.get('/index/:start/:limit', getAllPost);
 router.get('/index/category/:category/:start/:limit', getPostByCategories);
 router.get('/index/users/:username', getPostByUsers);
 router.get('/index/title/:title', getPostByTitle);

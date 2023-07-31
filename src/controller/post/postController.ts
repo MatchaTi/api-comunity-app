@@ -23,6 +23,41 @@ export const getPostByCategories = async (
   }
 };
 
+export const getAllPost = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { start, limit } = req.params;
+
+  try {
+    const data = await post
+      .find()
+      .sort({ createdAt: -1 })
+      .populate('users', 'credential.email username job avatar')
+      .skip(parseInt(start))
+      .limit(parseInt(limit));
+    res.status(200).json({ data });
+  } catch (error) {
+    errors(res, 400, error);
+  }
+};
+export const getPostById = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { id } = req.params;
+
+  try {
+    const data = await post
+      .findById(id)
+      .populate('users', 'credential.email username job avatar');
+
+    res.status(200).json({ data });
+  } catch (error) {
+    errors(res, 400, error);
+  }
+};
+
 export const getPostByUsers = async (
   req: Request,
   res: Response
@@ -72,7 +107,7 @@ export const createPost = async (
     _id: uuidv4(),
     user_id,
     users: user_id,
-    image: req.file?.path,
+    image: `/images/${req.file?.filename}`,
     ...req.body
   });
 
