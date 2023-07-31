@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //set multer config
-app.use('/images', express.static(path.join('images')));
+app.use('/api/v1/images', express.static(path.join('api/v1/images')));
 
 //set template engine
 app.set('view engine', 'ejs');

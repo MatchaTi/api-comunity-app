@@ -36,7 +36,7 @@ export interface IPost {
   description: string;
   code: {
     syntax: string;
-    path_file: string;
+    pathFile: string;
   };
   image: string;
   isEdited: boolean;
@@ -44,6 +44,7 @@ export interface IPost {
   linkSourceCode: string;
   linkLiveDemo: string;
   comment: Array<IComment>;
+  createdAt: string;
 }
 
 export interface IComment {
