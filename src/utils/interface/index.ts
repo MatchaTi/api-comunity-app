@@ -34,10 +34,7 @@ export interface IPost {
   title: string;
   category: string;
   description: string;
-  code: {
-    syntax: string;
-    pathFile: string;
-  };
+  code: ICode;
   image: string;
   isEdited: boolean;
   likes: number;
@@ -52,6 +49,7 @@ export interface IComment {
   post_id: string;
   user_id: string;
   description: string;
+  code: ICode;
   isEdited: boolean;
   created_at: number;
 }
@@ -68,4 +66,9 @@ export interface INotification {
   post_id?: string;
   description: string;
   created_at: number;
+}
+
+export interface ICode {
+  syntax: string;
+  pathFile: string;
 }
