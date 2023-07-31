@@ -11,7 +11,7 @@ export const createComment = async (
       $push: {
         comment: {
           ...req.body,
-          created_at: +new Date()
+          created_at: new Date()
         }
       }
     });
