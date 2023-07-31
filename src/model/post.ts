@@ -12,7 +12,7 @@ const postSchema = new Schema<IPost>(
     description: { type: String },
     code: {
       syntax: { type: String },
-      path_file: { type: String }
+      pathFile: { type: String }
     },
     image: { type: String },
 
