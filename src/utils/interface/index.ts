@@ -65,6 +65,7 @@ export interface INotification {
   user_id: string;
   post_id?: string;
   description: string;
+  isRead: boolean;
   created_at: number;
 }
 
