@@ -8,6 +8,10 @@ import { addUserInterest } from './interestController';
 import { followingUser, unFollowUser } from './followController';
 import { likeUser, unLikeUser } from './likeController';
 import { savePostByUser, deleteSavePostByUser } from './savedPostController';
+import {
+  markAsAllReadController,
+  markAsReadController
+} from './notificationController';
 
 export {
   getIndexUsers,
@@ -20,5 +24,7 @@ export {
   deleteSavePostByUser,
   getSavedPostUsers,
   getUserfollowers,
-  getUserfollowing
+  getUserfollowing,
+  markAsAllReadController,
+  markAsReadController
 };

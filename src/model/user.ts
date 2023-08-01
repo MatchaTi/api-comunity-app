@@ -35,6 +35,7 @@ const userSchema = new Schema<IUser>(
     notification: {
       type: [
         {
+          _id: { type: String, default: uuidv4 },
           user_id: { type: String },
           post_id: { type: String },
           description: { type: String },
