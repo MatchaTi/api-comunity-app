@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import http, { Server } from 'http';
 import { Server as socketServer } from 'socket.io';
 import dotenv from 'dotenv';
