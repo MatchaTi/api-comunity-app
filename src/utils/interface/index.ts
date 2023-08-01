@@ -62,6 +62,7 @@ export interface IBadge {
 }
 
 export interface INotification {
+  _id: string;
   user_id: string;
   post_id?: string;
   description: string;
