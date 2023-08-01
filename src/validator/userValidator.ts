@@ -50,6 +50,8 @@ export const forgotValidator = () => [
     .withMessage('Jumlah minimal 6 karakter')
 ];
 
-export const arrayValidator = () => [
-  body('interest').isArray().withMessage('data harus array')
+export const arrayValidator = (param: string) => [
+  body(param).isArray().withMessage('data harus array')
 ];
+
+export const notificationValidator = () => [body('notification_id').isString()];
