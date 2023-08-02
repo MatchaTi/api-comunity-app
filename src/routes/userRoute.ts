@@ -25,7 +25,7 @@ router.get('/:username/:start/:limit', getIndexUsers);
 router.get('/savedpost/:user_id/:start/:limit', getSavedPostUsers);
 router.get('/following', arrayValidator('following'), getUserfollowing);
 router.get('/followers', arrayValidator('followers'), getUserfollowing);
-router.get('/profile', getUserProfile);
+router.get('/profile/:user_id', getUserProfile);
 router.patch('/follow/:user_id/:user_follow_id', followingUser);
 router.patch('/unfollow/:user_id/:user_follow_id', unFollowUser);
 router.patch('/interest/:user_id', arrayValidator('interest'), addUserInterest);
