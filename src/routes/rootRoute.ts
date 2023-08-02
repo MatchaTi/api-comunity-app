@@ -12,7 +12,7 @@ const rootRouter = Router();
 
 rootRouter.use('/auth', authRouter);
 rootRouter.use('/post', [multerMiddleware], postRouter);
-rootRouter.use('/user', userRouter);
-rootRouter.use('/comment', commentRouter);
+rootRouter.use('/user', jwtMiddleware, userRouter);
+rootRouter.use('/comment', jwtMiddleware, commentRouter);
 
 export default rootRouter;
