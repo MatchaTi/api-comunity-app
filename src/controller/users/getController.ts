@@ -72,9 +72,9 @@ export const getUserProfile = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { username } = req.body;
+  const { user_id } = req.params;
   try {
-    const data = await user.find({ username }, '-credential');
+    const data = await user.find({ _id: user_id }, '-credential');
 
     res.status(200).json({ data });
   } catch (error) {
