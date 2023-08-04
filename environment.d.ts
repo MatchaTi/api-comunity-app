@@ -6,9 +6,11 @@ declare global {
       PORT?: number;
       PWD: string;
       MONGO_URI: string;
-      JWT_SECRET: string;
+      JWT_ACCESS_TOKEN_SECRET: string;
+      JWT_REFRESH_TOKEN_SECRET: string;
       EMAIL_PASS: string;
       EMAIL_USER: string;
+      VERSION: string;
     }
   }
 }
