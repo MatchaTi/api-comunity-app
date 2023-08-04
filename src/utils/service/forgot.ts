@@ -3,6 +3,7 @@ import { createForgotToken } from './jwt';
 import { IUser } from '../interface';
 import ejs from 'ejs';
 import path from 'path';
+import { logger } from '../../config/winston';
 
 export const createForgotRoute = async ({ _id, credential }: IUser) => {
   const token = createForgotToken(_id);
@@ -36,8 +37,14 @@ export const createForgotRoute = async ({ _id, credential }: IUser) => {
       html: view // html body
     });
 
-    console.log(info.messageId);
-  } catch (error) {
-    console.log(error);
+    logger.log({
+      level: 'info',
+      message: info.messageId
+    });
+  } catch (error: any) {
+    logger.log({
+      level: 'error',
+      message: error || 'error forgot password'
+    });
   }
 };

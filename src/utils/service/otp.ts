@@ -2,6 +2,7 @@ import otp from '../../model/otp';
 import nodemailer from 'nodemailer';
 import ejs from 'ejs';
 import path from 'path';
+import { logger } from '../../config/winston';
 
 export const createOtpToken = async (email: string) => {
   await otp.findOneAndRemove({ email });
@@ -39,7 +40,10 @@ export const createOtpToken = async (email: string) => {
     });
 
     if (info.messageId) await data.save();
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    logger.log({
+      level: 'error',
+      message: error || 'error forgot password'
+    });
   }
 };
