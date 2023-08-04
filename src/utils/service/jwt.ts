@@ -6,7 +6,11 @@ export const createToken = ({ _id, username, roles }: IUser) => {
     expiresIn: '30d'
   };
 
-  return jwt.sign({ _id, username, roles }, process.env.JWT_SECRET, option);
+  return jwt.sign(
+    { _id, username, roles },
+    process.env.JWT_ACCESS_TOKEN_SECRET,
+    option
+  );
 };
 
 export const createForgotToken = (_id: string) => {
@@ -14,5 +18,5 @@ export const createForgotToken = (_id: string) => {
     expiresIn: '15m'
   };
 
-  return jwt.sign({ _id }, process.env.JWT_SECRET, option);
+  return jwt.sign({ _id }, process.env.JWT_ACCESS_TOKEN_SECRET, option);
 };

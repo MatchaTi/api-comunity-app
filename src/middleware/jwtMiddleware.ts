@@ -21,7 +21,7 @@ export const jwtMiddleware = (
     return;
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, token) => {
+  jwt.verify(token, process.env.JWT_ACCESS_TOKEN_SECRET, (err, token) => {
     if (err) {
       errors(res, 401, 'UnAuthorization : Token Is Not verify');
       return;
