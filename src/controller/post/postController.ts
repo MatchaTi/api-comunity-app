@@ -102,11 +102,12 @@ export const createPost = async (
     return;
   }
 
-  const { user_id } = req.params;
+  const { _id } = res.locals.jwtPayload;
+
   const data = new post({
     _id: uuidv4(),
-    user_id,
-    users: user_id,
+    user_id: _id,
+    users: _id,
     image: `/images/${req.file?.filename}`,
     ...req.body
   });
