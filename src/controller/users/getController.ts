@@ -72,9 +72,23 @@ export const getUserProfile = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { user_id } = req.params;
+  const { _id } = res.locals.jwtPayload;
   try {
-    const data = await user.find({ _id: user_id }, '-credential');
+    const data = await user.find({ _id }, '-credential');
+
+    res.status(200).json({ data });
+  } catch (error) {
+    errors(res, 400, error);
+  }
+};
+
+export const getUserProfileByUsername = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { username } = req.params;
+  try {
+    const data = await user.find({ username }, '-credential');
 
     res.status(200).json({ data });
   } catch (error) {
