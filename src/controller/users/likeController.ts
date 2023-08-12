@@ -1,10 +1,26 @@
 import { Request, Response } from 'express';
 import post from '../../model/post';
 import { errors } from '../../utils/service/error';
+import user from '../../model/user';
 
 export const likeUser = async (req: Request, res: Response): Promise<void> => {
+  const { _id, username } = res.locals.jwtPayload;
+  const { post_id, user_id } = req.params;
   try {
-    await post.updateOne({ _id: req.params.post_id }, { $inc: { likes: 1 } });
+    await post.updateOne({ _id: post_id }, { $inc: { likes: 1 } });
+    await user.updateOne(
+      { _id: user_id },
+      {
+        $push: {
+          notification: {
+            user_id: _id,
+            post_id,
+            description: `${username} Menyukai Postingan Anda`,
+            created_at: new Date()
+          }
+        }
+      }
+    );
     res.status(200).json({ message: 'berhasil menyukai post' });
   } catch (error) {
     errors(res, 400, error);
