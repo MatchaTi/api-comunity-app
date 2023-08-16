@@ -18,7 +18,14 @@ export const fileStorage = multer.diskStorage({
     file: Express.Multer.File,
     callback: FileNameCallback
   ): void => {
-    callback(null, new Date().getTime() + '-' + file.originalname);
+    const { _id } = req.cookies.token;
+    const extension = file.originalname.split('.');
+    callback(
+      null,
+      (file.fieldname == 'image' ? new Date().getTime() : _id) +
+        '.' +
+        extension[1]
+    );
   }
 });
 
@@ -42,4 +49,7 @@ export const multerConfig = multer({
   storage: fileStorage,
   fileFilter: fileFilter,
   limits: { files: 1, fileSize: 1048575 }
-}).single('image');
+}).fields([
+  { name: 'image', maxCount: 1 },
+  { name: 'avatar', maxCount: 1 }
+]);
