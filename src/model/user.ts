@@ -40,7 +40,7 @@ const userSchema = new Schema<IUser>(
           post_id: { type: String },
           description: { type: String },
           isRead: { type: Boolean, default: false },
-          created_at: { type: Number }
+          created_at: { type: String }
         }
       ],
       default: []
