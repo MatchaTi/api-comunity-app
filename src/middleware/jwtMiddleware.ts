@@ -29,6 +29,7 @@ export const jwtMiddleware = (
 
     res.locals.jwtPayload = token;
 
+    res.cookie('token', token, { httpOnly: true });
     next();
   });
 };
