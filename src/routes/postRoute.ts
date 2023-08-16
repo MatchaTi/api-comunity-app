@@ -14,6 +14,7 @@ import {
   updatePostValidator
 } from '../validator/postValidator';
 import { jwtMiddleware } from '../middleware/jwtMiddleware';
+import { multerMiddleware } from '../middleware/multerMiddleware';
 
 const router = Router();
 
@@ -22,7 +23,13 @@ router.get('/index/:start/:limit', getAllPost);
 router.get('/index/category/:category/:start/:limit', getPostByCategories);
 router.get('/index/users/:username', getPostByUsers);
 router.get('/index/title/:title', getPostByTitle);
-router.post('/create', jwtMiddleware, createPostValidator(), createPost);
+router.post(
+  '/create',
+  jwtMiddleware,
+  multerMiddleware,
+  createPostValidator(),
+  createPost
+);
 router.put('/update/:post_id', updatePostValidator(), updatePost);
 router.delete('/delete/:post_id', deletePost);
 
