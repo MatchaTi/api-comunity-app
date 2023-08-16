@@ -21,6 +21,7 @@ import {
   getUserProfile,
   getUserProfileByUsername
 } from '../controller/users/getController';
+import { getImageProfile } from '../controller/users/profileController';
 
 const router: Router = Router();
 
@@ -30,10 +31,11 @@ router.get('/following', arrayValidator('following'), getUserfollowing);
 router.get('/followers', arrayValidator('followers'), getUserfollowing);
 router.get('/profile', getUserProfile);
 router.get('/profile/:username', getUserProfileByUsername);
+router.get('/image/:image_name', getImageProfile);
 router.patch('/follow/:user_id/:user_follow_id', followingUser);
 router.patch('/unfollow/:user_id/:user_follow_id', unFollowUser);
 router.patch('/interest/:user_id', arrayValidator('interest'), addUserInterest);
-router.patch('/likes/:post_id', likeUser);
+router.patch('/likes/:post_id/:user_id', likeUser);
 router.patch('/unlikes/:post_id', unLikeUser);
 router.patch('/savepost/:user_id/:post_id', savePostByUser);
 router.patch('/deletesavepost/:user_id/:post_id', deleteSavePostByUser);
