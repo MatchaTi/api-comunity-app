@@ -67,7 +67,7 @@ export interface INotification {
   post_id?: string;
   description: string;
   isRead: boolean;
-  created_at: number;
+  created_at: string;
 }
 
 export interface ICode {
