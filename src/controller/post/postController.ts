@@ -104,11 +104,13 @@ export const createPost = async (
 
   const { _id } = res.locals.jwtPayload;
 
+  const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+
   const data = new post({
     _id: uuidv4(),
     user_id: _id,
     users: _id,
-    image: `/images/${req.file?.filename}`,
+    image: `/images/${files['avatar'][0].filename}`,
     ...req.body
   });
 
