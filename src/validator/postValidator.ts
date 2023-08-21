@@ -11,7 +11,8 @@ export const createPostValidator = () => [
     .isLength({ max: 4000 })
     .withMessage('Jumlah maximal 4000 karakter')
     .optional(),
-  body('code').isString().optional(),
+  body('syntax').isString().isLength({ max: 4000 }).optional(),
+  body('pathFile').isString().optional(),
   body('linkSourceCode').isString().optional(),
   body('linkLiveDemo').isString().optional()
 ];

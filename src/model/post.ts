@@ -10,12 +10,9 @@ const postSchema = new Schema<IPost>(
     title: { type: String, required: true },
     category: { type: String, required: true },
     description: { type: String },
-    code: {
-      syntax: { type: String },
-      pathFile: { type: String }
-    },
+    syntax: { type: String },
+    pathFile: { type: String },
     image: { type: String },
-
     isEdited: { type: Boolean, default: false },
     likes: { type: Number, default: 0 },
     linkSourceCode: { type: String },
@@ -31,7 +28,6 @@ const postSchema = new Schema<IPost>(
           created_at: { type: Number }
         }
       ],
-
       default: []
     }
   },
