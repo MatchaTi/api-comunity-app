@@ -7,21 +7,23 @@ export const likeUser = async (req: Request, res: Response): Promise<void> => {
   const { _id, username } = res.locals.jwtPayload;
   const { post_id, user_id } = req.params;
   try {
+    const data = {
+      user_id: _id,
+      post_id,
+      description: `${username} Menyukai Postingan Anda`,
+      created_at: new Date()
+    };
     await post.updateOne({ _id: post_id }, { $inc: { likes: 1 } });
-    await user.updateOne(
+    await user.findOneAndUpdate(
       { _id: user_id },
       {
         $push: {
-          notification: {
-            user_id: _id,
-            post_id,
-            description: `${username} Menyukai Postingan Anda`,
-            created_at: new Date()
-          }
+          notification: data
         }
       }
     );
-    res.status(200).json({ message: 'berhasil menyukai post' });
+
+    res.status(200).json({ message: 'berhasil menyukai post', data });
   } catch (error) {
     errors(res, 400, error);
   }
