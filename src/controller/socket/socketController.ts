@@ -8,12 +8,15 @@ import {
 export const socketInitialize = (io: socketServer): void => {
   //io server
   io.on('connection', (socket) => {
-    socket.on('addSocketUserId', (data) =>
-      addUserSocketID(data.username, socket.id)
-    );
-    socket.on('kirim-notifikasi', async (pesan) => {
-      const userSocketID = await getSocketID(pesan.username);
-      socket.to(userSocketID).emit('notifikasi-baru', pesan.data);
+    socket.on('addSocketUserId', (data) => {
+      addUserSocketID(data.username, socket.id);
+    });
+    socket.on('kirim-notifikasi', async (message) => {
+      const userSocketID = await getSocketID(message.username);
+      io.to(userSocketID).emit('notifikasi-baru', message.data);
+    });
+    socket.on('error', function (err) {
+      console.log(err);
     });
     io.on('disconnect', () => {
       console.log('disconnect', socket.id);
