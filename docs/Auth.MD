@@ -246,7 +246,7 @@ PATCH /auth/update-password
 }
 ```
 
-### Status Code
+### `Status Code`
 
 | Status Code | Description             |
 | :---------- | :---------------------- |
@@ -257,7 +257,7 @@ PATCH /auth/update-password
 | 404         | `Not Found`             |
 | 500         | `Internal Server Error` |
 
-### Token Payload Example
+### `Token Payload Example`
 
 ```json
 {
