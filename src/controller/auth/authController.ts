@@ -33,8 +33,9 @@ export const register = async (req: Request, res: Response): Promise<void> => {
   try {
     await data.save();
     await createOtpToken(data.credential.email);
-    res.status(200).json({
-      message: 'Akun Sudah Teregistrasi, Harap Untuk MemVerfikasi Akun Anda'
+    res.status(201).json({
+      message:
+        'Akun Sudah berhasil Teregistrasi, Harap Untuk MemVerfikasi Akun Anda'
     });
   } catch (error) {
     errors(res, 400, error);
@@ -126,13 +127,13 @@ export const forgotPassword = async (
   const salt = await bcrypt.genSalt(10);
 
   try {
-    const users = await user.findById(req.body._id);
+    const users = await user.findById(res.locals.jwtPayload._id);
 
     if (!users) throw 'Email Tidak Ditemukan Harap Registrasi Terlebih Dahulu';
     if (!users.isActive)
       throw 'akun belum terverifikasi harap verifikasi akun terlebih dahulu';
 
-    await user.findByIdAndUpdate(req.body._id, {
+    await user.findByIdAndUpdate(res.locals.jwtPayload._id, {
       'credential.password': await bcrypt.hash(
         req.body.new_password.toLowerCase(),
         salt
