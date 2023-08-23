@@ -255,6 +255,7 @@ PATCH /auth/update-password
 | 400         | `Bad Request`           |
 | 401         | `UnAuthorization`       |
 | 404         | `Not Found`             |
+| 429         | `Too Many Request`      |
 | 500         | `Internal Server Error` |
 
 ### `Token Payload Example`
