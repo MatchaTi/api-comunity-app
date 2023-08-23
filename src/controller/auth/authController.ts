@@ -120,7 +120,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const forgotPassword = async (
+export const updatePassword = async (
   req: Request,
   res: Response
 ): Promise<void> => {
