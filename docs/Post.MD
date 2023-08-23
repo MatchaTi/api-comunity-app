@@ -1,32 +1,97 @@
-## DOKUMENTASI API COMMITAN
+# Post Docs
 
-### POST ROUTES
+---
 
-<table>
-  <tr>
-    <th colspan="5">Auth Routes</th>
-  </tr>
-  <tr>
-    <th>Route</th>
-    <th>HTTP</th>
-    <th>Header(s)</th>
-    <th>Body</th>
-    <th>Response</th>
-  </tr>
-  <tr>
-    <td>/post/create/:id_user</td>
-    <td>POST</td>
-    <td>none</td>
-    <td>title,description,category</td>
-    <td>message</td>
-  </tr>
-</table>
+### `Create`
 
-### JWT Payload example
+#### Routes
+
+```http
+POST /post/create
+```
+
+| Fieldname | Type   | Description |
+| :-------- | :----- | :---------- |
+| `None`    | `None` | `None`      |
+
+#### body
+
+`Header : Bearer Token`
+
+| FieldName      | Required | Type           | length     |
+| :------------- | :------- | :------------- | :--------- |
+| title          | `true`   | `string`       | `max:80`   |
+| category       | `true`   | `string`       | `max:30`   |
+| description    | `false`  | `string`       | `max:4000` |
+| image          | `false`  | `jpg/png/jpeg` | `none`     |
+| syntax         | `false`  | `string`       | `max:4000` |
+| pathFile       | `false`  | `string`       | `max:128`  |
+| linkSourceCode | `false`  | `string`       | `max:128`  |
+| linkLiveDemo   | `false`  | `string`       | `max:128`  |
+
+#### Response
+
+`STATUS CODE 201`
 
 ```json
 {
-  "username": "@johnDoe",
-  "roles": "user"
+  "message": "data berhasil diposting"
 }
 ```
+
+`STATUS CODE 400-500`
+
+```json
+{
+  "error": "error.message"
+}
+```
+
+---
+
+### `Update`
+
+#### Routes
+
+```http
+POST /post/update/:post_id
+```
+
+| Fieldname | Type            | Description               | Required |
+| :-------- | :-------------- | :------------------------ | :------- |
+| `post_id` | `url parameter` | `Reference From Post _id` | `true`   |
+
+#### body
+
+`Header : Bearer Token`
+
+| FieldName      | Required | Type           | length     |
+| :------------- | :------- | :------------- | :--------- |
+| title          | `true`   | `string`       | `max:80`   |
+| category       | `true`   | `string`       | `max:30`   |
+| description    | `false`  | `string`       | `max:4000` |
+| image          | `false`  | `jpg/png/jpeg` | `none`     |
+| syntax         | `false`  | `string`       | `max:4000` |
+| pathFile       | `false`  | `string`       | `max:128`  |
+| linkSourceCode | `false`  | `string`       | `max:128`  |
+| linkLiveDemo   | `false`  | `string`       | `max:128`  |
+
+#### Response
+
+`STATUS CODE 201`
+
+```json
+{
+  "message": "data berhasil diposting"
+}
+```
+
+`STATUS CODE 400-500`
+
+```json
+{
+  "error": "error.message"
+}
+```
+
+---
