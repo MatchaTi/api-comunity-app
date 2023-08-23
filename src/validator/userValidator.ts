@@ -13,8 +13,8 @@ export const registerValidator = () => [
     }),
   body('password')
     .isString()
-    .isLength({ min: 6 })
-    .withMessage('Password : Jumlah minimal 6 karakter'),
+    .isLength({ min: 6, max: 20 })
+    .withMessage('Password : Jumlah maximal 20 dan minimal 6 karakter'),
   body('fullname')
     .isString()
     .isLength({ min: 4, max: 28 })
@@ -43,10 +43,9 @@ export const loginValidator = () => [
 ];
 
 export const forgotValidator = () => [
-  body('_id').isString(),
   body('new_password')
     .isString()
-    .isLength({ min: 6 })
+    .isLength({ min: 6, max: 20 })
     .withMessage('Jumlah minimal 6 karakter')
 ];
 
