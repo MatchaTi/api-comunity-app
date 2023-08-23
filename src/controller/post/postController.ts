@@ -110,14 +110,13 @@ export const createPost = async (
     _id: uuidv4(),
     user_id: _id,
     users: _id,
-    image: `/images/${files['avatar'][0].filename}`,
+    image: `/images/${files['image'][0].filename}`,
     ...req.body
   });
 
   try {
     await data.save();
-    res.status(200).json({
-      data,
+    res.status(201).json({
       message: 'data berhasil diposting'
     });
   } catch (error) {
