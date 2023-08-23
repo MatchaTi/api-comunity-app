@@ -18,8 +18,10 @@ export const socketInitialize = (io: socketServer): void => {
     socket.on('error', function (err) {
       console.log(err);
     });
-    io.on('disconnect', () => {
-      console.log('disconnect', socket.id);
+    socket.on('disconnect', () => {
+      socket.removeAllListeners('addSocketUserId');
+      socket.removeAllListeners('kirim-notifikasi');
+      socket.removeAllListeners('error');
       removeUserSocketID(socket.id);
     });
   });
