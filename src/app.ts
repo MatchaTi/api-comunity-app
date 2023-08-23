@@ -3,11 +3,15 @@ import cors from 'cors';
 import rootRoute from './routes/rootRoute';
 import path from 'path';
 import cookieParser from 'cookie-parser';
+import limiter from './config/rateLimiter';
 
 const app: Express = express();
 
 //set cors
 app.use(cors());
+
+//set limiter
+app.use(limiter);
 
 //set cookie
 app.use(cookieParser());
