@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {
-  forgotPassword,
+  updatePassword,
   login,
   register,
   sendForgotPassword,
@@ -14,6 +14,7 @@ import {
   sendValidator,
   verifyValidator
 } from '../validator/userValidator';
+import { jwtMiddleware } from '../middleware/jwtMiddleware';
 
 const router: Router = Router();
 
@@ -22,6 +23,11 @@ router.post('/otp-verify', verifyValidator(), verifyTokenRegister);
 router.post('/send-otp', sendValidator(), sendTokenRegister);
 router.post('/login', loginValidator(), login);
 router.post('/send-forgot-password', sendValidator(), sendForgotPassword);
-router.put('/forgot-password', forgotValidator(), forgotPassword);
+router.patch(
+  '/update-password',
+  jwtMiddleware,
+  forgotValidator(),
+  updatePassword
+);
 
 export default router;
