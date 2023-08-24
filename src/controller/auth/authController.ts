@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import { createToken } from '../../utils/service/jwt';
+import { createAccessToken } from '../../utils/service/jwt';
 import { createOtpToken } from '../../utils/service/otp';
 import { generateUsername } from '../../utils/service/user';
 import otp from '../../model/otp';
@@ -66,7 +66,7 @@ export const verifyTokenRegister = async (
     await users.updateOne({ isActive: true });
     await otp.findOneAndRemove({ email: req.body.email });
 
-    const tokenJWT = createToken(users);
+    const tokenJWT = createAccessToken(users);
     res.status(200).json({
       message: 'berhasil menverifikasi akun',
       token: tokenJWT
@@ -109,11 +109,19 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     );
     if (!match) throw 'password salah';
 
-    const tokenJWT = createToken(users);
+    const accesToken = createAccessToken(users);
+    const refreshToken = createAccessToken(users);
+
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      maxAge: 1000 * 60 * 60 * 24 * 30
+    });
 
     res.status(200).json({
       message: 'berhasil login',
-      token: tokenJWT
+      token: accesToken
     });
   } catch (error) {
     errors(res, 400, error);
