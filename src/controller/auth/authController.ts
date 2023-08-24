@@ -12,7 +12,7 @@ import { expireTime } from '../../utils/service/time';
 import { errors } from '../../utils/service/error';
 
 export const register = async (req: Request, res: Response): Promise<void> => {
-  const salt = await bcrypt.genSalt(10);
+  const salt = await bcrypt.genSalt(process.env.SALT_SECRET);
   const resultValidator = validationResult(req);
   if (!resultValidator.isEmpty()) {
     res.json({ error: resultValidator.array() });
