@@ -11,6 +11,7 @@ declare global {
       EMAIL_PASS: string;
       EMAIL_USER: string;
       VERSION: string;
+      SALT_SECRET: number;
     }
   }
 }
