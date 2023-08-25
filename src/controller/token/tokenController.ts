@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import { errors } from '../../utils/service/error';
 import { createAccessToken } from '../../utils/service/jwt';
 
+type error = jwt.VerifyErrors | null;
+
 export const refreshToken = async (
   req: Request,
   res: Response
@@ -13,7 +15,7 @@ export const refreshToken = async (
     jwt.verify(
       refreshToken,
       process.env.JWT_REFRESH_TOKEN_SECRET,
-      (error: any) => {
+      (error: error) => {
         if (error) {
           errors(res, 403, 'UnAuthorized');
           return;
